@@ -4,6 +4,7 @@ import './App.css';
 import Login from '../Login/Login'
 import Home from '../Home/Home'
 import Header from '../Header/Header'
+import Configure from '../Configure/Configure';
 
 class App extends Component {
   constructor() {
@@ -25,6 +26,11 @@ class App extends Component {
             path="/home"
             exact
             render={() => <Home />}
+          />
+          <Route
+            path="/configure"
+            exact
+            render={() => <Configure/>}
           />
         </Switch>
       </div>
