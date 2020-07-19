@@ -1,0 +1,28 @@
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid lightblue;
+  border-radius: 10px;
+  width: 40%;
+  align-items: center;
+  margin-top: 15%;
+  padding-bottom: 0%;
+  padding: 5%;
+}
+
+.address-form input {
+  width: 75%;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.city-state {
+  display: flex;
+}
