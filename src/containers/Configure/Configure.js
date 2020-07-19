@@ -29,9 +29,10 @@ const Configure = (props) => {
           <label>Module Type:</label>
           <select
             className="configure-selects"
+            defaultValue={'DEFAULT'}
             onChange={e => updateModuleType(e.target.value)}
           >
-            <option>Select..</option>
+            <option value='DEFAULT' disabled>Select Module..</option>
             <option>Standard</option>
             <option>Premium</option>
             <option>Thin Film</option>
@@ -41,9 +42,10 @@ const Configure = (props) => {
           <label>Array Type:</label>
           <select
             className="configure-selects"
+            defaultValue={'DEFAULT'}
             onChange={e => updateArrayType(e.target.value)}
           >
-            <option>Select..</option>
+            <option value='DEFAULT' disabled>Select Array..</option>
             <option>Fixed (open rack)</option>
             <option>Fixed (roof mount)</option>
             <option>1-Axis Tracking</option>

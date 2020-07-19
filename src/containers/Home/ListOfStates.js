@@ -1,12 +1,13 @@
 import React from 'react'
 
-const ListOfStates = (props) => {
+const ListOfStates = ({ onChange }) => {
   const selectedState = (e) => {
     let state = e.target.value
-    props.onChange(state)
+    onChange(state)
   }
   return (
-    <select onChange={e => selectedState(e)}>
+    <select defaultValue={'DEFAULT'} onChange={e => selectedState(e)}>
+      <option value='DEFAULT' disabled>Select State..</option>
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
       <option value="AZ">Arizona</option>

@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 import { connect } from 'react-redux'
 import ListOfStates from './ListOfStates';
 
-const Home = (props) => {
+const Home = ({ setCurrentProfile }) => {
   const [name, updateName] = useState('')
   const [address, updateAddress] = useState('')
   const [city, updateCity] = useState('')
@@ -14,41 +14,14 @@ const Home = (props) => {
   const [error, updateError] = useState('')
   const [validatedUser, updateValidatedUser] = useState(false)
 
-
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (name === '' || address === '' || city === '' || (zipCode.length !== 5) || state === '') {
-      updateError('Please fill all Inputs')
-    } else {
-      updateError('')
-      const userProfile = createUpdatedUser()
-      props.setCurrentProfile(userProfile);
-      clearInputs()
-      updateValidatedUser(true)
+    if (zipCode.length !== 5 || !state) {
+      return updateError('Please fill all Inputs')
     }
-  }
-
-  const createUpdatedUser = () => {
-    // const userAddress = address !== '' ? address : null
-    // const userCity = city !== '' ? city : null
-    // const userState = state !== '' ? state : null
-    // const userZipCode = zipCode !== '' ? zipCode : null
-
-    // return {
-    //   userAddress: userAddress,
-    //   userCity: userCity,
-    //   userState: userState,
-    //   userZipCode: userZipCode,
-    // }
-    return { name, address, city, state, zipCode }
-  }
-
-  const clearInputs = () => {
-    updateName('')
-    updateAddress('')
-    updateCity('')
-    updateState('')
-    updateZipCode('')
+    const userProfile = { name, address, city, state, zipCode }
+    setCurrentProfile(userProfile);
+    updateValidatedUser(true)
   }
 
   return (
@@ -96,10 +69,9 @@ const Home = (props) => {
             required
             onChange={e => updateZipCode(e.target.value)}
           />
-          <button onClick={(e) => handleSubmit(e)}>Submit</button>
+          <button onSubmit={(e) => handleSubmit(e)}>Submit</button>
         </form>
         <section className="ecotip">
-
         </section>
       </div>
     </>

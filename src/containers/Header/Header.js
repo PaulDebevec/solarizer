@@ -6,10 +6,8 @@ import sun from '../../images/sun.svg'
 const Header = () => {
   const [user, updateUser] = useState('')
 
-  
-
   return (
-    <div className="header">
+    <div className="header-container">
       <div className="header-title">
         <h1 className="title">S</h1>
         <img src={sun} alt="sun" />
@@ -17,11 +15,11 @@ const Header = () => {
       </div>
       <div className="buttons">
         {user &&
-        <p>Welcome, {user}</p>
+          <p>Welcome, {user}</p>
         }
         <Link to="/home">
           {user &&
-          <button>Home</button>
+            <button>Home</button>
           }
         </Link>
         <Link to="/">
