@@ -1,28 +1,114 @@
-.home-container {
+/* .home-container {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+} */
+.home-container {
+  display: flex;
+  /* flex-direction: column; */
+  background-image: linear-gradient(
+      rgba(6, 18, 90, 0.2),
+      rgba(14, 44, 99, 0.2)
+    ),
+    url("https://texturify.com/content/10769/Sky%20Background-56.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: auto;
+  min-height: 90vh;
+  width: 100%;
+  padding: 50px 0;
 }
 
+.home-container img {
+  height: 1.5em;
+  margin-top: 0.3em;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+}
 .address-form {
+  background-color: whitesmoke;
+  background-image: linear-gradient(#6B9AC4, #EFF2F1);
+  opacity: 0.82;
   display: flex;
   flex-direction: column;
   border: 2px solid lightblue;
   border-radius: 10px;
   width: 40%;
   align-items: center;
-  margin-top: 15%;
+  margin: auto;
+  /* margin-top: 15%; */
   padding-bottom: 0%;
-  padding: 5%;
+  padding: 4%;
+  border-radius: 7px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
 .address-form input {
-  width: 75%;
-  text-align: center;
-  margin-bottom: 5%;
+  opacity: 1;
+  width: 100%;
+  padding: 2%;
+  margin-bottom: 2%;
+  border-radius: 6px;
+  font-size: 1.1em;
+}
+#city-input {
+  margin-bottom: 0%;
+  margin-right: 5%;
+}
+
+.address-form label {
+  align-items: flex-start;
 }
 
 .city-state {
   display: flex;
+  align-items: flex-end;
+  margin-bottom: 2%;
+}
+
+.city-label{
+display: flex;
+flex-direction: column;
+}
+
+.form-title {
+  font-style: italic;
+}
+
+.home-form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-form-inputs-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.state-select-box {
+  border-radius: 7px;
+  font-size: 1.1em;
+  height: fit-content;
+  padding: 1.6%;
+}
+#list-of-states-component {
+  margin-left: 5%;
+}
+.home-btn {
+    margin-top: 15px;
+    padding: 10px 40px;
+    border-radius: 5px;
+    align-self: center;
+    cursor: pointer;
+    border: 2px solid #333333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: .8;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+    color: #333333;
 }
