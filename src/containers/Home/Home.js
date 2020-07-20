@@ -28,7 +28,7 @@ const Home = ({ setCurrentProfile }) => {
     <>
       {validatedUser && <Redirect to="/configure" />}
       <div className="home-container">
-        <form className="address-form">
+        <form className="address-form" onSubmit={(e) => handleSubmit(e)}>
           <p className="error-message">New user?</p>
           <h3 className="form-title">Start Solarizing Now:</h3>
           {error &&
@@ -69,7 +69,7 @@ const Home = ({ setCurrentProfile }) => {
             required
             onChange={e => updateZipCode(e.target.value)}
           />
-          <button onSubmit={(e) => handleSubmit(e)}>Submit</button>
+          <button type='submit'>Submit</button>
         </form>
         <section className="ecotip">
         </section>
