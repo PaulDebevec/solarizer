@@ -4,7 +4,9 @@
   justify-content: center;
   width: 100%;
   height: 4em;
-  background-image: linear-gradient(#6B9AC4, #EFF2F1);
+  background-color: whitesmoke;
+  opacity: .85;
+  /* background-image: linear-gradient(#6B9AC4, #EFF2F1); */
 }
 
 .buttons {
