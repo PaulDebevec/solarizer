@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Switch, Route, Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './Login.css';
 
 class Login extends Component {

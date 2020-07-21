@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import './App.css';
 import Login from '../Login/Login'
 import Home from '../Home/Home'
@@ -9,13 +9,15 @@ import Configure from '../Configure/Configure';
 class App extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      user: ''
+    }
   }
 
   render() {
     return (
       <div>
-        <Header />
+        {this.state.user && <Header />}
         <Switch>
           <Route
             path="/"

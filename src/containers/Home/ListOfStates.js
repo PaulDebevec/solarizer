@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './Home.css';
 
 const ListOfStates = ({ onChange }) => {
   const selectedState = (e) => {
@@ -6,7 +7,7 @@ const ListOfStates = ({ onChange }) => {
     onChange(state)
   }
   return (
-    <select defaultValue={'DEFAULT'} onChange={e => selectedState(e)}>
+    <select className="state-select-box" defaultValue={'DEFAULT'} onChange={e => selectedState(e)}>
       <option value='DEFAULT' disabled>Select State..</option>
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>

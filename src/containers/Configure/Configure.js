@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { } from "react-router-dom";
 import './Configure.css';
 
 const Configure = (props) => {
@@ -9,11 +9,29 @@ const Configure = (props) => {
   const [systemLosses, updateSystemLosses] = useState(null)
   const [tilt, updateTilt] = useState(null)
   const [azimuth, updateAzimuth] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+
+useEffect(() =>{
+  setIsLoading(true)
+  fetch('https://developer.nrel.gov/api/pvwatts/v6.json?api_key=By8qOhq8GrFH18lkeImHNhinPb7jIbCbibKlQNsS&address=4521A S Crystal Way Aurora CO 80015&system_capacity=4&azimuth=180&tilt=20&array_type=0&module_type=0&losses=14')
+  .then(response => {
+    if (!response.ok){
+      throw new Error('Failed to fetch')
+    }
+    return response.json()
+  })
+  .then(data => console.log(data.outputs))
+}, [])
+
+const handleSubmit = e => {
+  e.preventDefault()
+  console.log(e.target)
+}
 
   return (
     <section className="configure-container">
       <h2>Enter in the following information to get a quote!</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Solar Array Configuration</h3>
         <div className="label-input-container">
           <label>System Size (kW):</label>
@@ -83,6 +101,8 @@ const Configure = (props) => {
             onChange={e => updateAzimuth(parseFloat(e.target.value))}
           />
         </div>
+        <button type="submit">Get Quote</button>
+
       </form>
     </section>
   )
