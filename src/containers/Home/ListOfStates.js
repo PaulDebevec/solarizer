@@ -1,10 +1,10 @@
 import React from 'react';
 import './Home.css';
 
-const ListOfStates = ({ onChange }) => {
+const ListOfStates = ({ onChange, state }) => {
   const selectedState = (e) => {
-    let state = e.target.value
-    onChange(state)
+    let selectedState = e.target.value || state
+    onChange(selectedState)
   }
   return (
     <select className="state-select-box" defaultValue={'DEFAULT'} onChange={e => selectedState(e)}>

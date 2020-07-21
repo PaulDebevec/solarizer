@@ -1,31 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import './App.css';
-import Login from '../Login/Login'
 import Home from '../Home/Home'
 import Header from '../Header/Header'
 import Configure from '../Configure/Configure';
+import Historical from '../../Historical/Historical';
+import { connect } from 'react-redux'
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      user: ''
-    }
-  }
+const App = (props) => {
+console.log('validatedUser', props);
 
-  render() {
+
     return (
       <div>
-        {this.state.user && <Header />}
+        {props.validatedUser && <Header />}
         <Switch>
           <Route
             path="/"
-            exact
-            render={() => <Login />}
-          />
-          <Route
-            path="/home"
             exact
             render={() => <Home />}
           />
@@ -34,10 +25,19 @@ class App extends Component {
             exact
             render={() => <Configure/>}
           />
+          <Route
+            path="/historical"
+            exact
+            render={() => <Historical />}
+          />
         </Switch>
       </div>
     );
   }
-}
 
-export default App;
+const mapStateToProps = (state) => ({
+  validatedUser: state.userProfile.validatedUser
+})
+
+
+export default connect(mapStateToProps, null) (App);
