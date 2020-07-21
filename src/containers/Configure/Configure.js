@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import './Configure.css';
+import { connect } from 'react-redux'
+import * as actions from '../../actions';
 
-const Configure = (props) => {
+const Configure = ({userQuote, allUserQuotes}) => {
   const [systemSize, updateSystemSize] = useState(null)
   const [moduleType, updateModuleType] = useState(null)
   const [arrayType, updateArrayType] = useState(null)
@@ -10,6 +12,8 @@ const Configure = (props) => {
   const [tilt, updateTilt] = useState(null)
   const [azimuth, updateAzimuth] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, updateError] = useState('')
+  const [formCompleted, updateFormCompleted] = useState(false)
 
 useEffect(() =>{
   setIsLoading(true)
@@ -25,12 +29,31 @@ useEffect(() =>{
 
 const handleSubmit = e => {
   e.preventDefault()
-  console.log(e.target)
+  if (moduleType === null || arrayType === null) {
+    return updateError('Please fill all Inputs')
+  }
+  const quote = {
+              systemSize,
+              moduleType,
+              arrayType,
+              systemLosses,
+              tilt,
+              azimuth,
+              id: Date.now()
+                }
+  userQuote(quote)
+  allUserQuotes(quote)
+  updateFormCompleted(true)
+
 }
 
   return (
+    <>
+      {formCompleted && <Redirect to="/historical"/>}
+   
     <section className="configure-container">
       <h2>Enter in the following information to get a quote!</h2>
+      {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <h3>Solar Array Configuration</h3>
         <div className="label-input-container">
@@ -48,6 +71,7 @@ const handleSubmit = e => {
           <select
             className="configure-selects"
             defaultValue={'DEFAULT'}
+            required
             onChange={e => updateModuleType(parseInt(e.target.value))}
           >
             <option value='DEFAULT' disabled>Select Module..</option>
@@ -61,6 +85,7 @@ const handleSubmit = e => {
           <select
             className="configure-selects"
             defaultValue={'DEFAULT'}
+            required
             onChange={e => updateArrayType(parseInt(e.target.value))}
           >
             <option value='DEFAULT' disabled>Select Array..</option>
@@ -102,10 +127,24 @@ const handleSubmit = e => {
           />
         </div>
         <button type="submit">Get Quote</button>
-
+        {/* <Link to="/">
+        <button type="submit">Home</button>
+        </Link> */}
       </form>
     </section>
+       </>
   )
 }
 
-export default Configure;
+
+const mapStateToProps = () => ({
+
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  userQuote: (quote) => dispatch(actions.userQuote(quote)),
+  allUserQuotes: (userQuote) => dispatch(actions.allUserQuotes(userQuote))
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Configure);
