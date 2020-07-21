@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import './Home.css';
 import * as actions from '../../actions';
 import { connect } from 'react-redux'
@@ -20,7 +20,7 @@ const Home = ({ setCurrentProfile }) => {
     if (zipCode.length !== 5 || !state) {
       return updateError('Please fill all Inputs')
     }
-    const userProfile = { address, city, state, zipCode }
+    const userProfile = { address, city, state, zipCode, validatedUser: true}
     setCurrentProfile(userProfile);
     updateValidatedUser(true)
   }
@@ -74,7 +74,7 @@ const Home = ({ setCurrentProfile }) => {
               </div>
               </div>
               <div id="list-of-states-component">
-                <ListOfStates onChange={(state) => updateState(state)} />
+                <ListOfStates state={state} onChange={(state) => updateState(state)} />
               </div>
             </div>
           <div className="home-form-item">
@@ -89,6 +89,9 @@ const Home = ({ setCurrentProfile }) => {
           </div>
         </div>
           <button className="home-btn" type="submit">Begin</button>
+        <Link to="/solarizerfaq">
+            <p className="what-is-solarizer">What is Solarizer?</p>
+        </Link>
         </form>
         <section className="ecotip">
         </section>

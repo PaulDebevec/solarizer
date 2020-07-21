@@ -1,12 +1,6 @@
-/* .home-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-} */
+
 .home-container {
   display: flex;
-  /* flex-direction: column; */
   background-image: linear-gradient(
       rgba(6, 18, 90, 0.2),
       rgba(14, 44, 99, 0.2)
@@ -99,6 +93,11 @@ flex-direction: column;
 #list-of-states-component {
   margin-left: 5%;
 }
+
+/* .what-is-solarizer {
+  margin-top: 5%
+} */
+
 .home-btn {
     margin-top: 15px;
     padding: 10px 40px;
