@@ -3,12 +3,12 @@ import { } from "react-router-dom";
 import './Configure.css';
 
 const Configure = (props) => {
-  const [systemSize, updateSystemSize] = useState('')
-  const [moduleType, updateModuleType] = useState('')
-  const [arrayType, updateArrayType] = useState('')
-  const [systemLosses, updateSystemLosses] = useState('')
-  const [tilt, updateTilt] = useState('')
-  const [azimuth, updateAzimuth] = useState('')
+  const [systemSize, updateSystemSize] = useState(null)
+  const [moduleType, updateModuleType] = useState(null)
+  const [arrayType, updateArrayType] = useState(null)
+  const [systemLosses, updateSystemLosses] = useState(null)
+  const [tilt, updateTilt] = useState(null)
+  const [azimuth, updateAzimuth] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
 useEffect(() =>{
@@ -40,7 +40,7 @@ const handleSubmit = e => {
             placeholder="4"
             value={systemSize}
             required
-            onChange={e => updateSystemSize(e.target.value)}
+            onChange={e => updateSystemSize(parseFloat(e.target.value))}
           />
         </div>
         <div className="label-input-container">
@@ -48,12 +48,12 @@ const handleSubmit = e => {
           <select
             className="configure-selects"
             defaultValue={'DEFAULT'}
-            onChange={e => updateModuleType(e.target.value)}
+            onChange={e => updateModuleType(parseInt(e.target.value))}
           >
             <option value='DEFAULT' disabled>Select Module..</option>
-            <option value ={moduleType}>Standard</option>
-            <option value={moduleType}> Premium</option>
-            <option value={moduleType}>Thin Film</option>
+            <option value={0}>Standard</option>
+            <option value={1}>Premium</option>
+            <option value={2}>Thin Film</option>
           </select>
         </div>
         <div className="label-input-container">
@@ -61,14 +61,14 @@ const handleSubmit = e => {
           <select
             className="configure-selects"
             defaultValue={'DEFAULT'}
-            onChange={e => updateArrayType(e.target.value)}
+            onChange={e => updateArrayType(parseInt(e.target.value))}
           >
             <option value='DEFAULT' disabled>Select Array..</option>
-            <option>Fixed (open rack)</option>
-            <option>Fixed (roof mount)</option>
-            <option>1-Axis Tracking</option>
-            <option>1-Axis Backtracking</option>
-            <option>2-Axis Tracking</option>
+            <option value={0}>Fixed (open rack)</option>
+            <option value={1}>Fixed (roof mount)</option>
+            <option value={2}>1-Axis Tracking</option>
+            <option value={3}>1-Axis Backtracking</option>
+            <option value={4}>2-Axis Tracking</option>
           </select>
         </div>
         <div className="label-input-container">
@@ -78,7 +78,7 @@ const handleSubmit = e => {
             placeholder="14"
             value={systemLosses}
             required
-            onChange={e => updateSystemLosses(e.target.value)}
+            onChange={e => updateSystemLosses(parseFloat(e.target.value))}
           />
         </div>
         <div className="label-input-container">
@@ -88,7 +88,7 @@ const handleSubmit = e => {
             placeholder="20"
             value={tilt}
             required
-            onChange={e => updateTilt(e.target.value)}
+            onChange={e => updateTilt(parseFloat(e.target.value))}
           />
         </div>
         <div className="label-input-container">
@@ -98,7 +98,7 @@ const handleSubmit = e => {
             placeholder="180"
             value={azimuth}
             required
-            onChange={e => updateAzimuth(e.target.value)}
+            onChange={e => updateAzimuth(parseFloat(e.target.value))}
           />
         </div>
         <button type="submit">Get Quote</button>
