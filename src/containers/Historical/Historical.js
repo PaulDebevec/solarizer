@@ -14,7 +14,8 @@ const Historical = () => {
     <>
       <div className='historical-container'>
         <form onSubmit={handleSubmit} className='historical-form'>
-          <h1>Optional: Enter this location's historical energy usage (kWh):</h1>
+          <h1>Enter this location's historical energy usage (kWh):</h1>
+          <h3><i>(OPTIONAL)</i></h3>
           <div className='input-columns-container'>
             <div className='historical-inputs-column'>
               <div className='month-label-input'>

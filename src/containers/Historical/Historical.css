@@ -14,23 +14,33 @@
   padding: 2em;
 }
 
+.historical-form h3 {
+  margin-top: 0.1em;
+}
+
 .input-columns-container {
   display: flex;
   width: 55%;
   justify-content: space-between;
+  margin-top: 2em;
 }
 
 .historical-inputs-column {
   display: flex;
   flex-direction: column;
-  /* width: 120%; */
-  /* align-items: flex-end; */
 }
 
 .month-label-input {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 110%;
+  margin: 0.5em 0em;
+}
+
+.month-label-input input {
+  /* font-size: 1.2em; */
+  padding: 0.5em ;
 }
 
 .historical-buttons-container {
@@ -40,10 +50,6 @@
 
 .historical-buttons {
   margin: 1em;
-  padding: 1em;
-  width: 40%;
-}
-
-.historical-buttons:hover {
-  /* cursor: pointer; */
+  padding: 0.5em 1.5em;
+  /* width: 40%; */
 }
