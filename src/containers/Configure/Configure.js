@@ -49,83 +49,92 @@ const Configure = ({userQuote, allUserQuotes}) => {
   return (
     <>
       {formCompleted && <Redirect to="/historical"/>}
-      <section className="configure-container">
-        <h2>Enter in the following information to get a quote!</h2>
-        {error && <p>{error}</p>}
-        <form onSubmit={handleSubmit}>
-          <h3>Solar Array Configuration</h3>
-          <div className="label-input-container">
-            <label>System Size (kW):</label>
-            <input
-              type="number"
-              placeholder="4"
-              value={systemSize}
-              required
-              onChange={e => updateSystemSize(parseFloat(e.target.value))}
-            />
+      <section className="background-container">
+        <div className="form-card">
+          <div className="configure-form-container">
+            <form className="configure-form" onSubmit={(e) => handleSubmit(e)}>
+              <h3>Configure your array:</h3>
+              {error && <p className="error">{error}</p>}
+
+              <div className="configure-form-item">
+                <label>System Size (kW):</label>
+                <input
+                  type="number"
+                  placeholder="4"
+                  value={systemSize}
+                  required
+                  onChange={e => updateSystemSize(parseFloat(e.target.value))}
+                />
+              </div>
+
+              <div className="configure-form-item">
+                <label>Module Type:</label>
+                <select
+                  className="configure-selects"
+                  defaultValue={'DEFAULT'}
+                  required
+                  onChange={e => updateModuleType(parseInt(e.target.value))}
+                >
+                  <option value='DEFAULT' disabled>Select Module..</option>
+                  <option value={0}>Standard</option>
+                  <option value={1}>Premium</option>
+                  <option value={2}>Thin Film</option>
+                </select>
+              </div>
+
+              <div className="configure-form-item">
+                <label>Array Type:</label>
+                <select
+                  className="configure-selects"
+                  defaultValue={'DEFAULT'}
+                  required
+                  onChange={e => updateArrayType(parseInt(e.target.value))}
+                >
+                  <option value='DEFAULT' disabled>Select Array..</option>
+                  <option value={0}>Fixed (open rack)</option>
+                  <option value={1}>Fixed (roof mount)</option>
+                  <option value={2}>1-Axis Tracking</option>
+                  <option value={3}>1-Axis Backtracking</option>
+                  <option value={4}>2-Axis Tracking</option>
+                </select>
+              </div>
+
+              <div className="configure-form-item">
+                <label>System Losses:</label>
+                <input
+                  type="number"
+                  placeholder="14"
+                  value={systemLosses}
+                  required
+                  onChange={e => updateSystemLosses(parseFloat(e.target.value))}
+                />
+              </div>
+
+              <div className="configure-form-item">
+                <label>Tilt:</label>
+                <input
+                  type="number"
+                  placeholder="20"
+                  value={tilt}
+                  required
+                  onChange={e => updateTilt(parseFloat(e.target.value))}
+                />
+              </div>
+
+              <div className="configure-form-item">
+                <label>Azimuth:</label>
+                <input
+                  type="number"
+                  placeholder="180"
+                  value={azimuth}
+                  required
+                  onChange={e => updateAzimuth(parseFloat(e.target.value))}
+                />
+              </div>
+              <button className="form-submit" type="submit">Submit</button>
+            </form>
           </div>
-          <div className="label-input-container">
-            <label>Module Type:</label>
-            <select
-              className="configure-selects"
-              defaultValue={'DEFAULT'}
-              required
-              onChange={e => updateModuleType(parseInt(e.target.value))}
-            >
-              <option value='DEFAULT' disabled>Select Module..</option>
-              <option value={0}>Standard</option>
-              <option value={1}>Premium</option>
-              <option value={2}>Thin Film</option>
-            </select>
-          </div>
-          <div className="label-input-container">
-            <label>Array Type:</label>
-            <select
-              className="configure-selects"
-              defaultValue={'DEFAULT'}
-              required
-              onChange={e => updateArrayType(parseInt(e.target.value))}
-            >
-              <option value='DEFAULT' disabled>Select Array..</option>
-              <option value={0}>Fixed (open rack)</option>
-              <option value={1}>Fixed (roof mount)</option>
-              <option value={2}>1-Axis Tracking</option>
-              <option value={3}>1-Axis Backtracking</option>
-              <option value={4}>2-Axis Tracking</option>
-            </select>
-          </div>
-          <div className="label-input-container">
-            <label>System Losses:</label>
-            <input
-              type="number"
-              placeholder="14"
-              value={systemLosses}
-              required
-              onChange={e => updateSystemLosses(parseFloat(e.target.value))}
-            />
-          </div>
-          <div className="label-input-container">
-            <label>Tilt:</label>
-            <input
-              type="number"
-              placeholder="20"
-              value={tilt}
-              required
-              onChange={e => updateTilt(parseFloat(e.target.value))}
-            />
-          </div>
-          <div className="label-input-container">
-            <label>Azimuth:</label>
-            <input
-              type="number"
-              placeholder="180"
-              value={azimuth}
-              required
-              onChange={e => updateAzimuth(parseFloat(e.target.value))}
-            />
-          </div>
-          <button type="submit">Get Quote</button>
-        </form>
+        </div>
       </section>
     </>
   )

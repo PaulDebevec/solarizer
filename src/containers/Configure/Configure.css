@@ -1,6 +1,7 @@
-.configure-container {
+.background-container {
+  justify-content: center;
+  align-items: center;
   display: flex;
-  flex-direction: column;
   background-image: linear-gradient(
       rgba(6, 18, 90, 0.2),
       rgba(14, 44, 99, 0.2)
@@ -15,24 +16,71 @@
   padding: 50px 0;
 }
 
-.label-input-container {
+.form-card {
+  background-color: whitesmoke;
+  background-image: linear-gradient(#6B9AC4, #EFF2F1);
+  opacity: 0.82;
+  border: 2px solid lightblue;
+  border-radius: 10px;
+  width: 40%;
+  max-width: 25em;
+  justify-content: center;
+  margin: auto;
+  padding-bottom: 0%;
+  padding: 4%;
+  border-radius: 7px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.configure-form {
+  flex-direction: column;
+
+  /* width: 70%; */
+}
+
+.configure-form h3 {
   display: flex;
+  justify-content: center;
+}
+
+.configure-form-item {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.label-input-container input {
-  width: 10em;
-  margin-bottom: 4%;
+.configure-form-item input {
+  opacity: 1;
+  width: 95%;
+  padding: 2%;
+  margin-bottom: 2%;
+  border-radius: 6px;
+  font-size: 1.1em;
 }
 
-.label-input-container label {
-  /* width: 10em; */
-  padding-right: 5%;
-  margin-bottom: 2%;
+.configure-form-item label {
+  align-items: flex-start;
 }
 
 .configure-selects {
-  width: 10.6em;
-  margin-bottom: 4%;
+  border-radius: 7px;
+  font-size: 1.1em;
+  height: fit-content;
+  padding: 1.6%;
+  width: 100%;
+}
 
+.form-submit {
+    display: flex;
+    margin: auto;
+    margin-top: 15px;
+    padding: 10px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #333333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: .8;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+    color: #333333;
 }
