@@ -52,7 +52,7 @@ const Configure = ({ userQuote, allUserQuotes }) => {
 
   return (
     <>
-      {formCompleted && <Redirect to="/historical"/>}
+      {formCompleted && <Redirect push to="/historical"/>}
       <section className="background-container">
         <div className="form-card">
           <div className="configure-form-container">
