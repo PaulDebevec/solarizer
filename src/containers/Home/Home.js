@@ -17,8 +17,11 @@ const Home = ({ setCurrentProfile }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (zipCode.length !== 5 || !state) {
-      return updateError('Please fill all Inputs')
+    if (!state) {
+      return updateError('Please select a state')
+    }
+    if (zipCode.length !== 5) {
+      return updateError('Zip code must be 5 digits')
     }
     const userProfile = { address, city, state, zipCode, validatedUser: true }
     setCurrentProfile(userProfile);

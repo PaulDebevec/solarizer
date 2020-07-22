@@ -29,8 +29,11 @@ const Configure = ({ userQuote, allUserQuotes }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    if (moduleType === null || arrayType === null) {
-      return updateError('Please fill all Inputs')
+    if (moduleType === null) {
+      return updateError('Please select a module type')
+    }
+    if (arrayType === null) {
+      return updateError('Please select an array type')
     }
     const quote = {
       systemSize,
@@ -53,7 +56,7 @@ const Configure = ({ userQuote, allUserQuotes }) => {
 
       <section className="configure-container">
         <h2>Enter in the following information to get a quote!</h2>
-        {error && <p>{error}</p>}
+        {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>
           <h3>Solar Array Configuration</h3>
           <div className="label-input-container">
