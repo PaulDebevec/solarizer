@@ -1,0 +1,49 @@
+.historical-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.historical-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  border: 1px solid black;
+  padding: 2em;
+}
+
+.input-columns-container {
+  display: flex;
+  width: 55%;
+  justify-content: space-between;
+}
+
+.historical-inputs-column {
+  display: flex;
+  flex-direction: column;
+  /* width: 120%; */
+  /* align-items: flex-end; */
+}
+
+.month-label-input {
+  display: flex;
+  justify-content: space-between;
+  width: 110%;
+}
+
+.historical-buttons-container {
+  margin: 2em;
+  display: flex;
+}
+
+.historical-buttons {
+  margin: 1em;
+  padding: 1em;
+  width: 40%;
+}
+
+.historical-buttons:hover {
+  /* cursor: pointer; */
+}
