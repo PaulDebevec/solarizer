@@ -84,3 +84,8 @@
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
     color: #333333;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+}

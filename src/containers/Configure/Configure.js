@@ -4,33 +4,36 @@ import './Configure.css';
 import { connect } from 'react-redux'
 import * as actions from '../../actions';
 
-const Configure = ({userQuote, allUserQuotes}) => {
+const Configure = ({ userQuote, allUserQuotes }) => {
   const [systemSize, updateSystemSize] = useState(null)
   const [moduleType, updateModuleType] = useState(null)
   const [arrayType, updateArrayType] = useState(null)
   const [systemLosses, updateSystemLosses] = useState(null)
   const [tilt, updateTilt] = useState(null)
   const [azimuth, updateAzimuth] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
+  // const [isLoading, setIsLoading] = useState(false)
   const [error, updateError] = useState('')
   const [formCompleted, updateFormCompleted] = useState(false)
 
-  useEffect(() =>{
-    setIsLoading(true)
+  useEffect(() => {
+    // setIsLoading(true)
     fetch('https://developer.nrel.gov/api/pvwatts/v6.json?api_key=By8qOhq8GrFH18lkeImHNhinPb7jIbCbibKlQNsS&address=4521A S Crystal Way Aurora CO 80015&system_capacity=4&azimuth=180&tilt=20&array_type=0&module_type=0&losses=14')
-    .then(response => {
-      if (!response.ok){
-        throw new Error('Failed to fetch')
-      }
-      return response.json()
-    })
-    .then(data => console.log(data.outputs))
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch')
+        }
+        return response.json()
+      })
+      .then(data => console.log(data.outputs))
   }, [])
 
   const handleSubmit = e => {
     e.preventDefault()
-    if (moduleType === null || arrayType === null) {
-      return updateError('Please fill all Inputs')
+    if (moduleType === null) {
+      return updateError('Please select a module type')
+    }
+    if (arrayType === null) {
+      return updateError('Please select an array type')
     }
     const quote = {
       systemSize,
@@ -44,6 +47,7 @@ const Configure = ({userQuote, allUserQuotes}) => {
     userQuote(quote)
     allUserQuotes(quote)
     updateFormCompleted(true)
+
   }
 
   return (
