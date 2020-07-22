@@ -1,3 +1,21 @@
 button:hover {
   cursor: pointer;
 }
+
+.background-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-image: linear-gradient(
+      rgba(6, 18, 90, 0.2),
+      rgba(14, 44, 99, 0.2)
+    ),
+    url("https://texturify.com/content/10769/Sky%20Background-56.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: auto;
+  min-height: 90vh;
+  width: 100%;
+  padding: 50px 0;
+}

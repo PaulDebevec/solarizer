@@ -31,7 +31,7 @@ const Home = ({ setCurrentProfile }) => {
   return (
     <>
       {validatedUser && <Redirect push to="/configure" />}
-      <div className="home-container">
+      <div className="background-container">
         <form className="address-form" onSubmit={(e) => handleSubmit(e)}>
           <div className="header-title">
             <h1 className="title">S</h1>
