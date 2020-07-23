@@ -13,7 +13,7 @@ const App = (props) => {
 
 
   return (
-    <div class="app-container">
+    <div className="app-container">
       {props.validatedUser && <Header />}
       <Switch>
         <Route

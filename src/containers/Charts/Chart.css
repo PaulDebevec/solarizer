@@ -23,11 +23,11 @@
     justify-content: center;
 }
 
-.chart-box {
+.single-chart-box {
     background-color: whitesmoke;
     padding: 1em;
     margin: 1em;
-    height: 250px;
-    width: 250px;
+    height: 20em;
+    width: 20em;
     text-align: center;
 }

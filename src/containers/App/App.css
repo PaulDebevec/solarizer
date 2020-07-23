@@ -2,10 +2,8 @@ button:hover {
   cursor: pointer;
 }
 
-.background-container {
-  justify-content: center;
-  align-items: center;
-  display: flex;
+
+.app-container {
   background-image: linear-gradient(
       rgba(6, 18, 90, 0.2),
       rgba(14, 44, 99, 0.2)
@@ -14,8 +12,16 @@ button:hover {
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  background-repeat: repeat;
   height: auto;
-  min-height: 90vh;
+  /* min-height: 90vh;  */
   width: 100%;
-  padding: 50px 0;
+
+}
+.background-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  padding: 6% 0;
 }

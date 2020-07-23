@@ -19,27 +19,43 @@ const Chart = ({solarData}) => {
     }, {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [{
-                label: 'AC Monthly',
+                label: 'Solar Radiation',
                 backgroundColor: 'rgba(75,192,192,1)',
                 borderColor: 'whitesmoke',
                 borderWidth: 2,
                 data: solarData.outputs.solrad_monthly
             }]
         } ])
-    const [names] = useState(['AC Monthy Output', 'SolRad Monthly'])
+    // const [chartSelection, updateChartSelection] = useState('Solar Radiation')
+    const [chartType, updateChartType] = useState('bar')
+    const [chartData, updateChartData] = useState(data[1])
+
+    const getSpecificChart = (e) => {
+        console.log(e.target.value);
+        // updateChartSelection(e.target.value)
+        let newChart = data.filter(item =>{
+            console.log(item.datasets[0].label)
+           return item.datasets[0].label === e.target.value})
+        console.log(newChart);
+        updateChartData(newChart[0])
+    }
+    
+    console.log('chartdata', chartData);
+    
            return (
         <div className="configure-container">
             <div className="larger-chart-box">
-            <div className="chart-box">
-            <Bar
-                data={data[0]}
+            <div className="single-chart-box">
+             {chartType === 'bar'  &&
+             <Bar  
+                data={chartData}
                 width={'50%'}
                 height={'50%'}
                 options={{
                     maintainAspectRatio: false,
                     title: {
                         display: true,
-                        text: names[0],
+                        text: chartData.datasets[0].label,
                         fontSize: 20,
                         fontColor: 'black'
                         },
@@ -48,18 +64,17 @@ const Chart = ({solarData}) => {
                         position: 'bottom'
                         }
                 }}
-            />
-          </div>
-          <div className="chart-box">
+            />}
+            {chartType === 'line' &&
             <Line
-                data={data[1]}
+                data={chartData}
                 width={'50%'}
                 height={'50%'}
                 options={{
                     maintainAspectRatio: false,
                     title: {
                         display: true,
-                        text: names[1],
+                        text: chartData.datasets[0].label,
                         fontSize: 20,
                         fontColor: 'black'
                     },
@@ -68,7 +83,36 @@ const Chart = ({solarData}) => {
                         position: 'bottom'
                     }
                 }}
-            />
+            />}
+          </div>
+            <div className="chart-selection-options">
+            <div className="configure-form-item">
+                <label>Chart Data</label>
+                <select
+                    className="configure-selects"
+                    defaultValue={"Solar Radiation"}
+                    required
+                    onChange={e => getSpecificChart(e)}
+                >
+                    <option value="Solar Radiation">Solar Radiation</option>
+                    <option value="AC Monthly">AC Monthly</option>
+                    <option value="savings">Savings Value</option>
+                </select>
+            </div>
+
+            <div className="configure-form-item">
+                <label>Chart Type</label>
+                <select
+                    className="configure-selects"
+                    defaultValue={'bar'}
+                    required
+                    onChange={e => updateChartType(e.target.value)}
+                >
+                    <option value='bar'>Bar</option>
+                    <option value='line'>Trend (Line)</option>
+
+                </select>
+            </div>
             </div>
             </div>
             <Link to="/">
