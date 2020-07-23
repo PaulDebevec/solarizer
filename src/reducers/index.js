@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
 import * as reducers from './userProfile'
-// import * as reducers from './userQuote'
+import { loadSolarData } from './solarData'
 
 const rootReducer = combineReducers({
   userProfile: reducers.currentProfileReducer,
   userQuote: reducers.userQuoteReducer,
-  allUserQuotes: reducers.allUserQuotesReducer
+  allUserQuotes: reducers.allUserQuotesReducer,
+  solarData: loadSolarData 
 })
 
 export default rootReducer;

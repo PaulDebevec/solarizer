@@ -4,7 +4,7 @@ import './Configure.css';
 import { connect } from 'react-redux'
 import * as actions from '../../actions';
 
-const Configure = ({ userQuote, allUserQuotes }) => {
+const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
   const [systemSize, updateSystemSize] = useState(null)
   const [moduleType, updateModuleType] = useState(null)
   const [arrayType, updateArrayType] = useState(null)
@@ -24,7 +24,7 @@ const Configure = ({ userQuote, allUserQuotes }) => {
         }
         return response.json()
       })
-      .then(data => console.log(data.outputs))
+      .then(data => loadSolarData(data))
   }, [])
 
   const handleSubmit = e => {
@@ -146,7 +146,8 @@ const mapStateToProps = () => ({
 
 const mapDispatchToProps = (dispatch) => ({
   userQuote: (quote) => dispatch(actions.userQuote(quote)),
-  allUserQuotes: (userQuote) => dispatch(actions.allUserQuotes(userQuote))
+  allUserQuotes: (userQuote) => dispatch(actions.allUserQuotes(userQuote)),
+  loadSolarData: (data) => dispatch(actions.loadSolarData(data))
 
 })
 
