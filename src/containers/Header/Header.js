@@ -15,6 +15,9 @@ const Header = () => {
       <Link to="/">
         <button>Home</button>
       </Link>
+      <Link to="/chart">
+        <button>Chart</button>
+      </Link>
     </div>
   );
 
