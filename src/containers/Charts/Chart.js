@@ -8,6 +8,8 @@ import './Chart.css'
 
 const Chart = ({ solarData }) => {
 
+  const [chartType, updateChartType] = useState('bar')
+
   const [data, updateData] = useState({
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [{
@@ -19,18 +21,12 @@ const Chart = ({ solarData }) => {
     }]
   })
 
-  const [chartType, updateChartType] = useState('bar')
-
   const getSpecificChart = (e) => {
+    let chartName = e.target.options[e.target.selectedIndex].text
+    let dataNames = Object.keys(solarData)
+    let chosenDataName = dataNames.find(item => e.target.value == item)
+    let selectedChart = solarData[chosenDataName]
 
-    let optionIndex = e.target.selectedIndex;
-    let selectOptions = e.target.options;
-    let chartName = selectOptions[optionIndex].text
-
-    let dataName = Object.keys(solarData)
-
-    let newChart = dataName.find(item => e.target.value == item)
-    let selectedChart = solarData[newChart]
     updateData({
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [{
@@ -47,66 +43,63 @@ const Chart = ({ solarData }) => {
     <div className="configure-container">
       <div className="larger-chart-box">
         <div className="single-chart-box">
-          {data ? <>
-            {chartType === 'bar' &&
-              <Bar
-                data={data}
-                width={'50%'}
-                height={'50%'}
-                options={{
-                  maintainAspectRatio: false,
-                  title: {
-                    display: true,
-                    text: data.datasets[0].label,
-                    fontSize: 20,
-                    fontColor: 'black'
-                  },
-                  legend: {
-                    display: true,
-                    position: 'bottom'
-                  }
-                }}
-              />}
-            {chartType === 'line' &&
-              <Line
-                data={data}
-                width={'50%'}
-                height={'50%'}
-                options={{
-                  maintainAspectRatio: false,
-                  title: {
-                    display: true,
-                    text: data.datasets[0].label,
-                    fontSize: 20,
-                    fontColor: 'black'
-                  },
-                  legend: {
-                    display: true,
-                    position: 'bottom'
-                  }
-                }}
-              />}
-            {chartType === 'pie' &&
-              <Pie
-                data={data}
-                width={'50%'}
-                height={'50%'}
-                options={{
-                  maintainAspectRatio: false,
-                  title: {
-                    display: true,
-                    text: data.datasets[0].label,
-                    fontSize: 20,
-                    fontColor: 'black'
-                  },
-                  legend: {
-                    display: true,
-                    position: 'bottom'
-                  }
-                }}
-              />}
-          </>
-            : <p>loading..</p>}
+          {chartType === 'bar' &&
+            <Bar
+              data={data}
+              width={'50%'}
+              height={'50%'}
+              options={{
+                maintainAspectRatio: false,
+                title: {
+                  display: true,
+                  text: data.datasets[0].label,
+                  fontSize: 20,
+                  fontColor: 'black'
+                },
+                legend: {
+                  display: true,
+                  position: 'bottom'
+                }
+              }}
+            />}
+          {chartType === 'line' &&
+            <Line
+              data={data}
+              width={'50%'}
+              height={'50%'}
+              options={{
+                maintainAspectRatio: false,
+                title: {
+                  display: true,
+                  text: data.datasets[0].label,
+                  fontSize: 20,
+                  fontColor: 'black'
+                },
+                legend: {
+                  display: true,
+                  position: 'bottom'
+                }
+              }}
+            />}
+          {chartType === 'pie' &&
+            <Pie
+              data={data}
+              width={'50%'}
+              height={'50%'}
+              options={{
+                maintainAspectRatio: false,
+                title: {
+                  display: true,
+                  text: data.datasets[0].label,
+                  fontSize: 20,
+                  fontColor: 'black'
+                },
+                legend: {
+                  display: true,
+                  position: 'bottom'
+                }
+              }}
+            />}
         </div>
         <div className="chart-selection-options">
           <div className="configure-form-item">
