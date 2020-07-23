@@ -1,0 +1,15 @@
+.ecotip-card {
+  background-color: whitesmoke;
+  background-image: linear-gradient(#6B9AC4, #EFF2F1);
+  opacity: 0.82;
+  border: 2px solid lightblue;
+  border-radius: 10px;
+  width: 40%;
+  max-width: 25em;
+  justify-content: center;
+  margin: auto;
+  padding-bottom: 0%;
+  padding: 4%;
+  border-radius: 7px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
