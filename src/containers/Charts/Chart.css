@@ -1,0 +1,33 @@
+.configure-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+  background-image: linear-gradient(
+      rgba(6, 18, 90, 0.2),
+      rgba(14, 44, 99, 0.2)
+    ),
+    url("https://texturify.com/content/10769/Sky%20Background-56.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: auto;
+  min-height: 90vh;
+  width: 100%;
+  padding: 50px 0;
+}
+.larger-chart-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.chart-box {
+    background-color: whitesmoke;
+    padding: 1em;
+    margin: 1em;
+    height: 250px;
+    width: 250px;
+    text-align: center;
+}
