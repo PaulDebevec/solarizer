@@ -1,15 +1,17 @@
 language: node_js
 node_js:
-- stable
+  - stable
 cache:
   directories:
   - node_modules
 script:
-- npm test
-- npm run build
+  - npm test
+  - npm run build
 deploy:
   app: solarizer
   provider: heroku
   api_key:
     secure: cMlOmQ18+RMlr7FCyBwV0O6iIoGInqX7jiG8j/WkgFyALTAjjfXynQp6+v/e3QF+OyPrBAxTdmmpGcjagHJpZuj2m3oNFxSRi/lk0LkPOCs79ovaRjuw/YxRG3W2GnuNjUKZTFxdch6Utddme5wS9nTcZNjZJ6Er0Xmu6/t8FZu+34tay2aZ5Levmd5UkdhQ/VTLTRvzlQPikVHCPgcGXmMUkPHZqpX0c067qqmwle0mTri9/Tm+3/PMd15vRSs97swKuV2FB7ub4mq+sllNDNKDAzbOU9aOeHqHL3S+CBGn7+M0x90MOK9WDngp7YXq3Khj7t8rYSToZ/sXPFd+OnGpSscAg9xawm+rbjj/4njt8/BCWDYy0n+MSd+fLhD5RpT+yNaxAELRdwfELSikgk+DN7eO32pfA3qh+Fe7yhOU3clsWAjSbD38+Pss5gQAPkLcB8yDLKqo9KjFvbX69c4kFlAnQqsZRGgowJsAWDLCJzL34x79PW5OMJDAuo3yShYSxux7JILfaCKqwM3gl982sYUNxMgHrwkfY++uZwv8U4CPj5246jb+T+CFNTLKMBkjtoqFP1AVUjo8RZjIpw5XjAeqPGi7DzJ9lM5spyeHxorIQE95k3+DBwIB8QyM2XSI+ZHCJ8Ed+L5ZoaheJKXDa2kqMIuqS9GpwKK9qzY=
   skip_cleanup: true
+notifications:
+  email: false
