@@ -13,3 +13,8 @@ export const allUserQuotes = (userQuote) => ({
   userQuote
 })
 
+export const loadSolarData = (data) => ({
+  type: "SET_SOLAR_DATA",
+  data
+})
+
