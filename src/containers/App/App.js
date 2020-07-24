@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import './App.css';
 import Home from '../Home/Home'
 import Ecotip from '../Ecotip/Ecotip'

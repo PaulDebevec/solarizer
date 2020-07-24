@@ -15,10 +15,10 @@ const Home = ({ setCurrentProfile }) => {
   const [error, updateError] = useState('')
   const [validatedUser, updateValidatedUser] = useState(false)
 
-  useEffect(() => {
+  useEffect((address, city, state, zipCode) => {
     const userProfile = { address, city, state, zipCode, validatedUser: false }
     setCurrentProfile(userProfile)
-  }, [])
+  }, [setCurrentProfile])
 
   const handleSubmit = (e) => {
     e.preventDefault()

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Bar, Line, Pie } from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+// import * as actions from '../../actions';
 import './Chart.css'
 
 
@@ -26,7 +26,7 @@ const Chart = ({ solarData }) => {
   const getSpecificChart = (e) => {
     let chartName = e.target.options[e.target.selectedIndex].text
     let dataNames = Object.keys(solarData)
-    let chosenDataName = dataNames.find(item => e.target.value == item)
+    let chosenDataName = dataNames.find(item => e.target.value === item)
     let selectedChart = solarData[chosenDataName]
     let updatedLabel = e.target.options[e.target.selectedIndex].dataset.yAxis
 
@@ -51,8 +51,8 @@ const Chart = ({ solarData }) => {
           {chartType === 'bar' &&
             <Bar
               data={data}
-              width={'50%'}
-              height={'50%'}
+              width={50}
+              height={50}
               options={{
                 maintainAspectRatio: false,
                 title: {
@@ -78,8 +78,8 @@ const Chart = ({ solarData }) => {
           {chartType === 'line' &&
             <Line
               data={data}
-              width={'50%'}
-              height={'50%'}
+              width={50}
+              height={50}
               options={{
                 maintainAspectRatio: false,
                 title: {
@@ -105,8 +105,8 @@ const Chart = ({ solarData }) => {
           {chartType === 'pie' &&
             <Pie
               data={data}
-              width={'100%'}
-              height={'100%'}
+              width={50}
+              height={50}
               options={{
                 maintainAspectRatio: false,
                 title: {

@@ -5,12 +5,12 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions';
 
 const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
-  const [systemSize, updateSystemSize] = useState(null)
-  const [moduleType, updateModuleType] = useState(null)
-  const [arrayType, updateArrayType] = useState(null)
-  const [systemLosses, updateSystemLosses] = useState(null)
-  const [tilt, updateTilt] = useState(null)
-  const [azimuth, updateAzimuth] = useState(null)
+  const [systemSize, updateSystemSize] = useState('')
+  const [moduleType, updateModuleType] = useState(undefined)
+  const [arrayType, updateArrayType] = useState(undefined)
+  const [systemLosses, updateSystemLosses] = useState('')
+  const [tilt, updateTilt] = useState('')
+  const [azimuth, updateAzimuth] = useState('')
   // const [isLoading, setIsLoading] = useState(false)
   const [error, updateError] = useState('')
   const [formCompleted, updateFormCompleted] = useState(false)
@@ -25,14 +25,14 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
         return response.json()
       })
       .then(data => loadSolarData(data))
-  }, [])
+  }, [loadSolarData])
 
   const handleSubmit = e => {
     e.preventDefault()
-    if (moduleType === null) {
+    if (moduleType === undefined) {
       return updateError('Please select a module type')
     }
-    if (arrayType === null) {
+    if (arrayType === undefined) {
       return updateError('Please select an array type')
     }
     const quote = {
@@ -52,7 +52,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
 
   return (
     <>
-      {formCompleted && <Redirect push to="/historical"/>}
+      {formCompleted && <Redirect push to="/historical" />}
       <section className="background-container">
         <div className="form-card">
           <div className="configure-form-container">
