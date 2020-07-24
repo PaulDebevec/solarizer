@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from "react-router-dom";
 import './Home.css';
 import * as actions from '../../actions';
@@ -14,6 +14,11 @@ const Home = ({ setCurrentProfile }) => {
   const [zipCode, updateZipCode] = useState('')
   const [error, updateError] = useState('')
   const [validatedUser, updateValidatedUser] = useState(false)
+
+  useEffect(() => {
+    const userProfile = { address, city, state, zipCode, validatedUser: false }
+    setCurrentProfile(userProfile)
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
