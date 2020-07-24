@@ -23,11 +23,21 @@
     justify-content: center;
 }
 
+.configure-selects {
+  margin-top: 0.2em;
+  margin-bottom: 0.7em;
+}
+
+.configure-form-item label {
+  font-weight: bold;
+  color: white;
+}
+
 .single-chart-box {
     background-color: whitesmoke;
     padding: 1em;
     margin: 1em;
-    height: 20em;
-    width: 30em;
+    height: 35em;
+    width: 50em;
     text-align: center;
 }
