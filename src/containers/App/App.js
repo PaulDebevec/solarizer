@@ -10,13 +10,12 @@ import { connect } from 'react-redux'
 import Chart from '../Charts/Chart';
 
 const App = (props) => {
-  console.log('validatedUser', props);
-
 
   return (
     <>
-      {props.validatedUser && <Header />}
       <div className="background-container">
+        {props.validatedUser && <Header />}
+        {/* <div> */}
         <Ecotip />
         <Switch>
           <Route
@@ -34,7 +33,14 @@ const App = (props) => {
             exact
             render={() => <Historical />}
           />
+          <Route
+            path="/chart"
+            exact
+            render={() => <Chart />}
+          />
+
         </Switch>
+        {/* </div> */}
       </div>
     </>
   );
