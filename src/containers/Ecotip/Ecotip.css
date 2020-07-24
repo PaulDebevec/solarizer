@@ -1,13 +1,16 @@
 .ecotip-card {
+  position: absolute;
   background-color: #97D8C4;
   opacity: 0.82;
   border: 2px solid lightblue;
   border-radius: 10px;
-  width: 40%;
-  max-width: 25em;
+  width: 10%;
+  max-width: 12em;
   justify-content: center;
   margin: auto;
   padding-bottom: 0%;
   padding: 4%;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  top: 20%;
+  left: 2%;
 }

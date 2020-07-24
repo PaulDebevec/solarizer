@@ -2,8 +2,22 @@ button:hover {
   cursor: pointer;
 }
 
-
 .app-container {
+
+  height: auto;
+  /* min-height: 90vh;  */
+  width: 100%;
+
+}
+.background-container {
+  /* justify-content: flex-end; */
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  /* padding: 6% 0; */
   background-image: linear-gradient(
       rgba(6, 18, 90, 0.2),
       rgba(14, 44, 99, 0.2)
@@ -13,15 +27,4 @@ button:hover {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: repeat;
-  height: auto;
-  /* min-height: 90vh;  */
-  width: 100%;
-
-}
-.background-container {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  width: 100%;
-  padding: 6% 0;
 }
