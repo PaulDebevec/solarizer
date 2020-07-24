@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
 import './App.css';
 import Home from '../Home/Home'
+import Ecotip from '../Ecotip/Ecotip'
 import Header from '../Header/Header'
 import Configure from '../Configure/Configure';
 import Historical from '../Historical/Historical';
@@ -13,33 +14,29 @@ const App = (props) => {
 
 
   return (
-    <div className="app-container">
+    <>
       {props.validatedUser && <Header />}
-      <Switch>
-        <Route
-          path="/"
-          exact
-          render={() => <Home />} 
-        /> 
-        {props.validatedUser ? 
+      <div className="background-container">
+        <Ecotip />
+        <Switch>
           <Route
-          path="/configure"
-          exact
-          render={() => <Configure />}
-          /> : <Redirect to="/" />
-        }
-        <Route
-          path="/chart"
-          exact
-          render={() => <Chart />}
-        />
-        <Route
-          path="/historical"
-          exact
-          render={() => <Historical />}
-        />
-      </Switch>
-    </div>
+            path="/"
+            exact
+            render={() => <Home />}
+          />
+          <Route
+            path="/configure"
+            exact
+            render={() => <Configure />}
+          />
+          <Route
+            path="/historical"
+            exact
+            render={() => <Historical />}
+          />
+        </Switch>
+      </div>
+    </>
   );
 }
 
