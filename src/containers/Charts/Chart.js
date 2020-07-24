@@ -9,6 +9,7 @@ import './Chart.css'
 const Chart = ({ solarData }) => {
 
   const [chartType, updateChartType] = useState('bar')
+  const [yAxisLabel, updateYAxisLabel] = useState('(kWh / m^2) / day')
 
   const [data, updateData] = useState({
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -17,7 +18,8 @@ const Chart = ({ solarData }) => {
       backgroundColor: 'rgba(75,192,192,1)',
       borderColor: 'whitesmoke',
       borderWidth: 2,
-      data: solarData.solrad_monthly
+      data: solarData.solrad_monthly,
+
     }]
   })
 
@@ -26,6 +28,9 @@ const Chart = ({ solarData }) => {
     let dataNames = Object.keys(solarData)
     let chosenDataName = dataNames.find(item => e.target.value == item)
     let selectedChart = solarData[chosenDataName]
+    let updatedLabel = e.target.options[e.target.selectedIndex].dataset.yAxis
+
+    updateYAxisLabel(updatedLabel)
 
     updateData({
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -59,6 +64,14 @@ const Chart = ({ solarData }) => {
                 legend: {
                   display: true,
                   position: 'bottom'
+                },
+                scales: {
+                  yAxes: [{
+                    scaleLabel: {
+                      display: true,
+                      labelString: yAxisLabel
+                    }
+                  }]
                 }
               }}
             />}
@@ -78,6 +91,14 @@ const Chart = ({ solarData }) => {
                 legend: {
                   display: true,
                   position: 'bottom'
+                },
+                scales: {
+                  yAxes: [{
+                    scaleLabel: {
+                      display: true,
+                      labelString: yAxisLabel
+                    }
+                  }]
                 }
               }}
             />}
@@ -97,6 +118,14 @@ const Chart = ({ solarData }) => {
                 legend: {
                   display: true,
                   position: 'bottom'
+                },
+                scales: {
+                  yAxes: [{
+                    scaleLabel: {
+                      display: true,
+                      labelString: yAxisLabel
+                    }
+                  }]
                 }
               }}
             />}
@@ -110,9 +139,9 @@ const Chart = ({ solarData }) => {
               required
               onChange={e => getSpecificChart(e)}
             >
-              <option id='Solar' value="solrad_monthly">Solar Radiation</option>
-              <option id='AC' value="ac_monthly">AC Monthly</option>
-              {solarData.savings && <option id='' value="savings">Savings Value</option>}
+              <option id='Solar' data-y-axis='(kWh / m^2) / day' value="solrad_monthly">Solar Radiation</option>
+              <option id='AC' data-y-axis='kWh' value="ac_monthly">AC Monthly</option>
+              {solarData.savings && <option id='Dollars $' data-y-axis='' value="savings">Savings Value</option>}
             </select>
           </div>
 
