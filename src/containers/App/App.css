@@ -1,6 +1,36 @@
+
+/* button {
+  color: #1D9AF2;
+  background-color: #292D3E;
+  border: 1px solid #1D9AF2;
+  border-radius: 4px;
+  padding: 0 15px;
+  cursor: pointer;
+  height: 32px;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+} */
+
+.home-btn, button {
+    margin-top: 15px;
+    padding: 10px 40px;
+    border-radius: 5px;
+    align-self: center;
+    cursor: pointer;
+    border: 2px solid #333333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: .8;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    transition: all 0.2s ease-in-out;
+}
+
 button:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
+
 
 .app-container {
 
