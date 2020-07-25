@@ -15,8 +15,8 @@ const Home = ({ setCurrentProfile }) => {
   const [error, updateError] = useState('')
   const [validatedUser, updateValidatedUser] = useState(false)
 
-  useEffect((address, city, state, zipCode) => {
-    const userProfile = { address, city, state, zipCode, validatedUser: false }
+  useEffect((address, city, state, zipCode, validatedUser) => {
+    const userProfile = { address, city, state, zipCode, validatedUser }
     setCurrentProfile(userProfile)
   }, [setCurrentProfile])
 
@@ -60,6 +60,7 @@ const Home = ({ setCurrentProfile }) => {
             <input
               type="text"
               name="address"
+              role="address"
               value={address}
               required
               onChange={e => updateAddress(e.target.value)}
@@ -74,6 +75,7 @@ const Home = ({ setCurrentProfile }) => {
                   id="city-input"
                   type="text"
                   name="city"
+                  role="city"
                   value={city}
                   required
                   onChange={e => updateCity(e.target.value)}
@@ -89,6 +91,7 @@ const Home = ({ setCurrentProfile }) => {
             <input
               type="number" maxLength="5"
               name="zipCode"
+              role="zipCode"
               value={zipCode}
               required
               onChange={e => updateZipCode(e.target.value)}
