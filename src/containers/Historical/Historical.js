@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Historical.css'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 const Historical = ({ userProfile, userQuote, loadSolarData }) => {
   const [completedInputs, updateCompletedInputs] = useState(false)
