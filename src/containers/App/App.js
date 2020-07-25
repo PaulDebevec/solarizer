@@ -8,6 +8,7 @@ import Configure from '../Configure/Configure';
 import Historical from '../Historical/Historical';
 import { connect } from 'react-redux'
 import Chart from '../Charts/Chart';
+import Results from '../Results/Results'
 
 const App = (props) => {
 
@@ -37,6 +38,11 @@ const App = (props) => {
             path="/chart"
             exact
             render={() => <Chart />}
+          />
+          <Route
+            path="/results"
+            exact
+            render={() => <Results />}
           />
 
         </Switch>
