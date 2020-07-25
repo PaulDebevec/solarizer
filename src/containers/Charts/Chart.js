@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Bar, Line, Pie } from 'react-chartjs-2'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 // import * as actions from '../../actions';
 import './Chart.css'
@@ -10,6 +9,7 @@ const Chart = ({ solarData }) => {
 
   const [chartType, updateChartType] = useState('bar')
   const [yAxisLabel, updateYAxisLabel] = useState('(kWh / m^2) / day')
+  const [savingsValue] = useState(50)
 
   const [data, updateData] = useState({
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -161,9 +161,9 @@ const Chart = ({ solarData }) => {
           </div>
         </div>
       </div>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+      <div className="savings-display-bar">
+        <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p>
+      </div>
     </div>
   )
 }
