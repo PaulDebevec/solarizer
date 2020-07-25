@@ -26,7 +26,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
 
     console.log(fetch_object)
 
-    fetch('http://localhost:5000/results', {
+    fetch('https://solarizer-api.herokuapp.com/results', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
