@@ -33,9 +33,11 @@ describe('Home', () => {
     expect(addressLabel).toBeInTheDocument()
   })
 
-  it('should ')
+  it('should ', () => {
 
-  it('should call the handleSubmit function on the click of the Begin button', () => {
+  })
+
+  it.skip('should call the handleSubmit function on the click of the Begin button', () => {
     // const mockSubmit = jest.fn()
     // jest.mock(currentUserProfile, () => jest.fn()
     //   .mockImplementationOnce(() => {
