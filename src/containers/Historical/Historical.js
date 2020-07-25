@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import './Historical.css'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 const Historical = ({ userProfile, userQuote, loadSolarData }) => {
+  const [completedInputs, updateCompletedInputs] = useState(false)
   const [january, updateJanuary] = useState(undefined)
   const [february, updateFebruary] = useState(undefined)
   const [march, updateMarch] = useState(undefined)
@@ -73,10 +74,13 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
       })
       // .then(data => console.log(data))
       .then(data => loadSolarData(data))
+      .then(() => updateCompletedInputs(true))
+
   }
 
   return (
     <>
+      {completedInputs && <Redirect push to="/results" />}
       <div className='historical-container'>
         <form onSubmit={handleSubmit} className='historical-form'>
           <h1>Enter this location's historical energy usage (kWh):</h1>
@@ -88,7 +92,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={january}
-                  required
+                  // required
                   onChange={e => updateJanuary(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -96,7 +100,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={february}
-                  required
+                  // required
                   onChange={e => updateFebruary(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -104,7 +108,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={march}
-                  required
+                  // required
                   onChange={e => updateMarch(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -112,7 +116,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={april}
-                  required
+                  // required
                   onChange={e => updateApril(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -120,7 +124,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={may}
-                  required
+                  // required
                   onChange={e => updateMay(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -128,7 +132,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={june}
-                  required
+                  // required
                   onChange={e => updateJune(parseFloat(e.target.value))}/>
               </div>
             </div>
@@ -139,7 +143,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={july}
-                  required
+                  // required
                   onChange={e => updateJuly(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -147,7 +151,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={august}
-                  required
+                  // required
                   onChange={e => updateAugust(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -155,7 +159,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={september}
-                  required
+                  // required
                   onChange={e => updateSeptember(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -163,7 +167,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={october}
-                  required
+                  // required
                   onChange={e => updateOctober(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -171,7 +175,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={november}
-                  required
+                  // required
                   onChange={e => updateNovember(parseFloat(e.target.value))}/>
               </div>
               <div className='month-label-input'>
@@ -179,7 +183,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
                 <input type='number'
                   step='0.01'
                   value={december}
-                  required
+                  // required
                   onChange={e => updateDecember(parseFloat(e.target.value))}/>
               </div>
             </div>
@@ -188,11 +192,10 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
             <button type='submit' className='historical-buttons'>
               Submit
           </button>
-            <Link to='/results'>
-              <button className='historical-buttons'>
+              <button type='submit' className='historical-buttons'>
                 Skip
             </button>
-            </Link>
+
           </div>
         </form>
       </div>
