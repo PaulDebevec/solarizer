@@ -39,13 +39,14 @@ const Results = ({solarData}) => {
             </tbody>
 
             </table>
-            <Link to="/chart">
-            <button>Graph It!</button>
-            </Link>
-            <div className="savings-display-bar">
-                <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p>
+            <div className="results-bottom">
+              <Link to="/chart">
+              <button>Graph It!</button>
+              </Link>
+              <div className="savings-display-bar">
+                  <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p>
+              </div>
             </div>
-            
         </div>
     )
 }
