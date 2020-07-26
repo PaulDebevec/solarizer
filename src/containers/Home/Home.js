@@ -56,7 +56,6 @@ const Home = ({ setCurrentProfile, user }) => {
             <input
               type="text"
               name="address"
-              role="address"
               value={address}
               required
               onChange={e => updateAddress(e.target.value)}
@@ -70,7 +69,6 @@ const Home = ({ setCurrentProfile, user }) => {
                   id="city-input"
                   type="text"
                   name="city"
-                  role="city"
                   value={city}
                   required
                   onChange={e => updateCity(e.target.value)}
@@ -86,7 +84,6 @@ const Home = ({ setCurrentProfile, user }) => {
             <input
               type="number" maxLength="5"
               name="zipCode"
-              role="zipCode"
               value={zipCode}
               required
               onChange={e => updateZipCode(e.target.value)}

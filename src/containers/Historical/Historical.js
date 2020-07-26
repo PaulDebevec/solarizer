@@ -42,20 +42,20 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
       losses: userQuote.systemLosses
     }
 
-    const historical_kWh = {
-      january,
-      february,
-      march,
-      april,
-      may,
-      june,
-      july,
-      august,
-      september,
-      october,
-      november,
-      december
-    }
+    // const historical_kWh = {
+    //   january,
+    //   february,
+    //   march,
+    //   april,
+    //   may,
+    //   june,
+    //   july,
+    //   august,
+    //   september,
+    //   october,
+    //   november,
+    //   december
+    // }
 
     fetch('https://solarizer-api.herokuapp.com/results', {
       method: 'POST',
@@ -63,7 +63,8 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        solarizer_parameters: solarizer_parameters
+        solarizer_parameters: solarizer_parameters,
+        // historical_kWh: historical_kWh
       })
     })
       .then(response => {
