@@ -39,7 +39,7 @@ const Header = ({ user, solarData, clearAllData }) => {
 }
 const mapStateToProps = (state) => ({
   user: state.userProfile,
-  solarData: state.solarData.outputs
+  solarData: state.solarData.solRadMonthly
 })
 
 const mapDispatchToProps = (dispatch) => ({

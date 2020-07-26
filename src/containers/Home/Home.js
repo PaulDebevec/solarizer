@@ -54,6 +54,7 @@ const Home = ({ setCurrentProfile, user }) => {
           <div className="home-form-item">
             <label>Street Address</label>
             <input
+              data-testid="street-address"
               type="text"
               name="address"
               value={address}
@@ -64,15 +65,17 @@ const Home = ({ setCurrentProfile, user }) => {
           <div className="city-state">
             <div className="home-form-item">
               <div className="city-label">
-                <label>City</label>
-                <input
-                  id="city-input"
-                  type="text"
-                  name="city"
-                  value={city}
-                  required
-                  onChange={e => updateCity(e.target.value)}
-                />
+                <label>City
+                  <input
+                    data-testid="city"
+                    id="city-input"
+                    type="text"
+                    name="city"
+                    value={city}
+                    required
+                    onChange={e => updateCity(e.target.value)}
+                  />
+                </label>
               </div>
             </div>
             <div id="list-of-states-component">
@@ -82,6 +85,7 @@ const Home = ({ setCurrentProfile, user }) => {
           <div className="home-form-item">
             <label>Zip Code</label>
             <input
+              title="zip-code"
               type="number" maxLength="5"
               name="zipCode"
               value={zipCode}
