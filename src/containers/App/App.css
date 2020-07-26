@@ -13,6 +13,8 @@
 
 .home-btn, button {
     margin-top: 15px;
+    /* margin-top: 7.5em; */
+    /* padding: 2.5em 5em; */
     padding: 10px 40px;
     border-radius: 5px;
     align-self: center;
@@ -31,14 +33,6 @@ button:hover {
   cursor: pointer;
 }
 
-
-.app-container {
-
-  height: auto;
-  /* min-height: 90vh;  */
-  width: 100%;
-
-}
 .background-container {
   /* justify-content: flex-end; */
   position: relative;
