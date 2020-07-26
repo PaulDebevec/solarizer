@@ -144,7 +144,6 @@ const Chart = ({ solarData, history }) => {
               {solarData.savings && <option id='Dollars $' data-y-axis='' value="savings">Savings Value</option>}
             </select>
           </div>
-
           <div className="configure-form-item">
             <label>Chart Type</label>
             <select
@@ -156,7 +155,6 @@ const Chart = ({ solarData, history }) => {
               <option value='bar'>Bar</option>
               <option value='line'>Trend (Line)</option>
               <option value='pie'>Pie</option>
-
             </select>
           </div>
         </div>

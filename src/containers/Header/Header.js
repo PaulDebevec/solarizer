@@ -5,7 +5,6 @@ import sun from '../../images/sun.svg'
 import { connect } from 'react-redux'
 import * as actions from '../../actions';
 
-
 const Header = ({ user, solarData, clearAllData }) => {
 
   return (
@@ -30,7 +29,6 @@ const Header = ({ user, solarData, clearAllData }) => {
         {user &&
           <NavLink to="/" exact className="nav"
             onClick={clearAllData}>
-
             New Address
           </NavLink>
         }
@@ -43,9 +41,9 @@ const mapStateToProps = (state) => ({
   user: state.userProfile,
   solarData: state.solarData.outputs
 })
+
 const mapDispatchToProps = (dispatch) => ({
   clearAllData: () => dispatch(actions.clearAllData()),
 })
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -56,8 +56,6 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
       november,
       december
     }
-    console.log(solarizer_parameters)
-    console.log(historical_kWh)
 
     fetch('https://solarizer-api.herokuapp.com/results', {
       method: 'POST',
@@ -68,7 +66,6 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         solarizer_parameters: solarizer_parameters
       })
     })
-
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch')
@@ -80,7 +77,6 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         loadSolarData(object)
       })
       .then(() => updateCompletedInputs(true))
-
   }
 
   return (

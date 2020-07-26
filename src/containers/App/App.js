@@ -43,7 +43,6 @@ const App = (props) => {
             exact
             render={() => <Results />}
           />
-
         </Switch>
       </div>
     </>

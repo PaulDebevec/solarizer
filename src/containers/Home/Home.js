@@ -15,11 +15,6 @@ const Home = ({ setCurrentProfile, user }) => {
   const [error, updateError] = useState('')
   const [validatedUser, updateValidatedUser] = useState(false)
 
-  // useEffect((address, city, state, zipCode) => {
-  //   const userProfile = { address, city, state, zipCode, validatedUser: false }
-  //   setCurrentProfile(userProfile)
-  // }, [setCurrentProfile])
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!state) {
@@ -67,7 +62,6 @@ const Home = ({ setCurrentProfile, user }) => {
               onChange={e => updateAddress(e.target.value)}
             />
           </div>
-
           <div className="city-state">
             <div className="home-form-item">
               <div className="city-label">

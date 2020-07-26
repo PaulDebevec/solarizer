@@ -2,7 +2,6 @@ import { combineReducers } from 'redux'
 import * as reducers from './userProfile'
 import { loadSolarData } from './solarData'
 
-
 const appReducer = combineReducers({
   userProfile: reducers.currentProfileReducer,
   userQuote: reducers.userQuoteReducer,

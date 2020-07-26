@@ -18,10 +18,6 @@ export const loadSolarData = (data) => ({
   data
 })
 
-// export const clearSolarData = () => ({
-//   type: "CLEAR_SOLAR_DATA",
-// })
-
 export const clearAllData = () => ({
   type: "USER_LOGOUT"
 })
