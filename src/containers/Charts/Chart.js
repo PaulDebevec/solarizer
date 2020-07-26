@@ -165,7 +165,7 @@ const Chart = ({ solarData, history }) => {
       <div className="savings-display-bar">
         {history ?
           <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p> :
-          < p > For a true savings estimate, please enter your <Link to = "/historical"> home energy data</Link> </p>
+          < p > For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
         }
       </div>
     </div>

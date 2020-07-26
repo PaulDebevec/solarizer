@@ -38,7 +38,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
     if (systemSize < 1 || systemSize > 10 || systemLosses < 0 || systemLosses > 20
       || tilt < 0 || tilt > 45 || azimuth < 0 || azimuth > 359) {
       return updateError('Please reverify inputs to be in acceptable range')
-      }
+    }
     const quote = {
       systemSize,
       moduleType,

@@ -4,10 +4,10 @@ import { loadSolarData } from './solarData'
 
 
 const appReducer = combineReducers({
-    userProfile: reducers.currentProfileReducer,
-    userQuote: reducers.userQuoteReducer,
-    allUserQuotes: reducers.allUserQuotesReducer,
-    solarData: loadSolarData 
+  userProfile: reducers.currentProfileReducer,
+  userQuote: reducers.userQuoteReducer,
+  allUserQuotes: reducers.allUserQuotesReducer,
+  solarData: loadSolarData
 })
 // const rootReducer = combineReducers({
 //   userProfile: reducers.currentProfileReducer,
