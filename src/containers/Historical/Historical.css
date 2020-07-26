@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 7%;
+  margin-top: 2.5%;
 }
 
 .historical-form {
@@ -12,6 +12,11 @@
   align-items: center;
   border: 1px solid black;
   padding: 2em;
+  background-color: whitesmoke;
+  background-image: linear-gradient(#6B9AC4, #EFF2F1);
+  opacity: 0.82;
+  border: 2px solid lightblue;
+  border-radius: 10px;
 }
 
 .historical-form h3 {
@@ -20,7 +25,7 @@
 
 .input-columns-container {
   display: flex;
-  width: 55%;
+  width: 85%;
   justify-content: space-between;
   margin-top: 2em;
 }
@@ -28,19 +33,27 @@
 .historical-inputs-column {
   display: flex;
   flex-direction: column;
+  width: 43%;
 }
 
 .month-label-input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 110%;
-  margin: 0.5em 0em;
+  width: 100%;
+  margin: 0.5em 0.5em;
+  color: white;
+}
+
+.month-label-input label {
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
 .month-label-input input {
-  /* font-size: 1.2em; */
+  font-size: 1.2em;
   padding: 0.5em ;
+  width: 40%;
 }
 
 .historical-buttons-container {
@@ -53,3 +66,4 @@
   padding: 0.5em 1.5em;
   /* width: 40%; */
 }
+
