@@ -90,7 +90,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
     <>
       {history && <Redirect push to="/results" />}
       {completedInputs && <Redirect push to="/results" />}
-      <div className='background-container'>
+      <div className='historical-container'>
         <form onSubmit={handleSubmit} className='historical-form'>
           <h1>Enter this location's historical energy usage (kWh):</h1>
           <h3><i>(OPTIONAL)</i></h3>
@@ -198,19 +198,8 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
             </div>
           </div>
           <div className='historical-buttons-container'>
-            < button type = 'submit'
-            onClick = {
-              submitClick
-            }
-            id = "submit"
-            className = 'historical-buttons' >
-              Submit
-          </button>
-              < button type = 'submit' 
-              className = 'historical-buttons' >
-                Skip
-            </button>
-
+            <button type = 'submit' onClick = {submitClick} id = "submit" className = 'historical-buttons'>Submit</button>
+            < button type = 'submit' className = 'historical-buttons'>Skip</button>
           </div>
         </form>
       </div>
