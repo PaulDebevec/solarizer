@@ -36,7 +36,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
       return updateError('Please select an array type')
     }
     if (systemSize < 1 || systemSize > 10 || systemLosses < 0 || systemLosses > 20
-      || tilt < 0 || tilt > 45 || azimuth < 0 || azimuth > 315) {
+      || tilt < 0 || tilt > 45 || azimuth < 0 || azimuth > 359) {
       return updateError('Please reverify inputs to be in acceptable range')
       }
     const quote = {
@@ -130,7 +130,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
               </div>
 
               <div className="configure-form-item">
-                <label>Azimuth: (0-315 degress)</label>
+                <label>Azimuth: (0-359 degress)</label>
                 <input
                   type="number"
                   placeholder="180"
