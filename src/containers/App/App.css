@@ -34,5 +34,11 @@ button:hover {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: repeat;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
+.background-container::-webkit-scrollbar {
+  display: none;
 }

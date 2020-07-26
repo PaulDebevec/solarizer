@@ -101,6 +101,10 @@
     background-size: cover;
     background-repeat: repeat;
   }
+
+  .historical-buttons-container button {
+    font-size: 1em;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -121,5 +125,9 @@
     font-size: 1em;
     padding: 0.2em ;
     width: 40%;
+  }
+
+  .historical-buttons-container button {
+    font-size: 0.8em;
   }
 }
