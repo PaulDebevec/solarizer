@@ -4,7 +4,7 @@ import './Configure.css';
 import { connect } from 'react-redux'
 import * as actions from '../../actions';
 
-const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
+const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
   const [systemSize, updateSystemSize] = useState('')
   const [moduleType, updateModuleType] = useState(undefined)
   const [arrayType, updateArrayType] = useState(undefined)
@@ -35,6 +35,10 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
     if (arrayType === undefined) {
       return updateError('Please select an array type')
     }
+    if (systemSize < 1 || systemSize > 10 || systemLosses < 0 || systemLosses > 20
+      || tilt < 0 || tilt > 45 || azimuth < 0 || azimuth > 315) {
+      return updateError('Please reverify inputs to be in acceptable range')
+      }
     const quote = {
       systemSize,
       moduleType,
@@ -52,6 +56,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
   return (
     <>
       {formCompleted && <Redirect push to="/historical" />}
+      {quote && <Redirect push to="/historical" />}
       <section className="background-container">
         <div className="form-card">
           <div className="configure-form-container">
@@ -60,7 +65,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
               {error && <p className="error">{error}</p>}
 
               <div className="configure-form-item">
-                <label>System Size (kW):</label>
+                <label>System Size (kW): (1-10)</label>
                 <input
                   type="number"
                   placeholder="4"
@@ -103,7 +108,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
               </div>
 
               <div className="configure-form-item">
-                <label>System Losses:</label>
+                <label>System Losses: (0-20%)</label>
                 <input
                   type="number"
                   placeholder="14"
@@ -114,7 +119,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
               </div>
 
               <div className="configure-form-item">
-                <label>Tilt:</label>
+                <label>Tilt: (0-45 degress)</label>
                 <input
                   type="number"
                   placeholder="20"
@@ -125,7 +130,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
               </div>
 
               <div className="configure-form-item">
-                <label>Azimuth:</label>
+                <label>Azimuth: (0-315 degress)</label>
                 <input
                   type="number"
                   placeholder="180"
@@ -143,7 +148,8 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData }) => {
   )
 }
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+  quote: state.userQuote.id
 })
 
 const mapDispatchToProps = (dispatch) => ({
