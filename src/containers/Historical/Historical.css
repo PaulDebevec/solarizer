@@ -42,7 +42,7 @@
   align-items: center;
   width: 100%;
   margin: 0.5em 0.5em;
-  color: white;
+  color: #405565;
 }
 
 .month-label-input label {
@@ -67,9 +67,18 @@
   /* width: 40%; */
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .historical-form {
     width: 45%;
+  }
+
+  .historical-form h1{
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .historical-form h3 {
+    font-size: 1rem;
   }
 
   .input-columns-container {
@@ -92,5 +101,26 @@
     background-attachment: fixed;
     background-size: cover;
     background-repeat: repeat;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .historical-form h1{
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .historical-form h3 {
+    font-size: 0.8em;
+  }
+
+  .month-label-input label {
+    font-size: 1em;
+  }
+
+  .month-label-input input {
+    font-size: 1em;
+    padding: 0.2em ;
+    width: 40%;
   }
 }
