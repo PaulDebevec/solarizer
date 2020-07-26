@@ -82,5 +82,15 @@
     width: 100%;
   }
 
-
+  .historical-container {
+    background-image: linear-gradient(
+      rgba(6, 18, 90, 0.2),
+      rgba(14, 44, 99, 0.2)
+    ),
+    url("https://texturify.com/content/10769/Sky%20Background-56.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: repeat;
+  }
 }
