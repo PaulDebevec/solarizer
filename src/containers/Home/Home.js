@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Redirect, Link } from "react-router-dom";
 import './Home.css';
 import * as actions from '../../actions';
@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import ListOfStates from './ListOfStates';
 import sun from '../../images/sun.svg'
 
-const Home = ({ setCurrentProfile }) => {
+const Home = ({ setCurrentProfile, user }) => {
   // const [name, updateName] = useState('')
   const [address, updateAddress] = useState('')
   const [city, updateCity] = useState('')
@@ -15,10 +15,10 @@ const Home = ({ setCurrentProfile }) => {
   const [error, updateError] = useState('')
   const [validatedUser, updateValidatedUser] = useState(false)
 
-  useEffect((address, city, state, zipCode) => {
-    const userProfile = { address, city, state, zipCode, validatedUser: false }
-    setCurrentProfile(userProfile)
-  }, [setCurrentProfile])
+  // useEffect((address, city, state, zipCode) => {
+  //   const userProfile = { address, city, state, zipCode, validatedUser: false }
+  //   setCurrentProfile(userProfile)
+  // }, [setCurrentProfile])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -35,6 +35,7 @@ const Home = ({ setCurrentProfile }) => {
 
   return (
     <>
+      {user && <Redirect push to="/configure" />}
       {validatedUser && <Redirect push to="/configure" />}
       <form className="address-form" onSubmit={(e) => handleSubmit(e)}>
         <div className="header-title">
@@ -104,8 +105,8 @@ const Home = ({ setCurrentProfile }) => {
   );
 }
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = (state) => ({
+  user: state.userProfile.validatedUser
 })
 
 const mapDispatchToProps = (dispatch) => ({

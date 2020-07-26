@@ -4,14 +4,14 @@
   align-items: center;
   flex-wrap: wrap;
   margin: auto;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       rgba(6, 18, 90, 0.2),
       rgba(14, 44, 99, 0.2)
     ),
     url("https://texturify.com/content/10769/Sky%20Background-56.jpg");
   background-position: center center;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover; */
   height: auto;
   min-height: 90vh;
   width: 100%;
@@ -48,4 +48,5 @@
   border-radius: 5px;
   width: 90%;
   text-align: center;
+  margin-top: 1.5em;
 }
