@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions'
 import { Redirect } from 'react-router-dom'
 
-const Historical = ({ userProfile, userQuote, loadSolarData }) => {
+const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
   const [completedInputs, updateCompletedInputs] = useState(false)
   const [january, updateJanuary] = useState(undefined)
   const [february, updateFebruary] = useState(undefined)
@@ -18,9 +18,15 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
   const [october, updateOctober] = useState(undefined)
   const [november, updateNovember] = useState(undefined)
   const [december, updateDecember] = useState(undefined)
+  const [historicalData, updateHistoricalData] = useState(false)
+
+  const submitClick = (e) => {
+       updateHistoricalData(true)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    // console.log(e.target.id);
     const splitAddress = userProfile.address.split(' ')
     splitAddress.push(userProfile.city, userProfile.state, userProfile.zipCode)
 
@@ -51,20 +57,19 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
       november,
       december
     }
-
     console.log(solarizer_parameters)
     console.log(historical_kWh)
 
     fetch('https://solarizer-api.herokuapp.com/results', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          solarizer_parameters: solarizer_parameters
-          // historical_kWh: historical_kWh
-        })
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        solarizer_parameters: solarizer_parameters
+        // historical_kWh: historical_kWh
       })
+    })
 
       .then(response => {
         if (!response.ok) {
@@ -73,13 +78,17 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
         return response.json()
       })
       // .then(data => console.log(data))
-      .then(data => loadSolarData(data))
+      .then(data => {
+        let object = { data, historicalData }
+        loadSolarData(object)
+      })
       .then(() => updateCompletedInputs(true))
 
   }
 
   return (
     <>
+      {history && <Redirect push to="/results" />}
       {completedInputs && <Redirect push to="/results" />}
       <div className='historical-container'>
         <form onSubmit={handleSubmit} className='historical-form'>
@@ -189,10 +198,16 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
             </div>
           </div>
           <div className='historical-buttons-container'>
-            <button type='submit' className='historical-buttons'>
+            < button type = 'submit'
+            onClick = {
+              submitClick
+            }
+            id = "submit"
+            className = 'historical-buttons' >
               Submit
           </button>
-              <button type='submit' className='historical-buttons'>
+              < button type = 'submit'
+              className = 'historical-buttons' >
                 Skip
             </button>
 
@@ -205,7 +220,8 @@ const Historical = ({ userProfile, userQuote, loadSolarData }) => {
 
 const mapStateToProps = (state) => ({
   userProfile: state.userProfile,
-  userQuote: state.userQuote
+  userQuote: state.userQuote,
+  history: state.solarData.historicalData
 })
 
 const mapDispatchToProps = (dispatch) => ({

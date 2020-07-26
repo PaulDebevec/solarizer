@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
 }
+
 .address-form {
   background-color: whitesmoke;
   background-image: linear-gradient(#6B9AC4, #EFF2F1);
@@ -15,10 +16,9 @@
   flex-direction: column;
   border: 2px solid lightblue;
   border-radius: 10px;
-  width: 40%;
+  width: 30%;
   align-items: center;
   margin: auto;
-  /* margin-top: 15%; */
   padding-bottom: 0%;
   padding: 4%;
   border-radius: 7px;
@@ -73,13 +73,11 @@ flex-direction: column;
   height: fit-content;
   padding: 1.6%;
 }
+
 #list-of-states-component {
   margin-left: 5%;
 }
 
-/* .what-is-solarizer {
-  margin-top: 5%
-} */
 
 .home-btn {
     margin-top: 15px;

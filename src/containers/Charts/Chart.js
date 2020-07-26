@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Bar, Line, Pie } from 'react-chartjs-2'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 // import * as actions from '../../actions';
 import './Chart.css'
 
 
-const Chart = ({ solarData }) => {
+const Chart = ({ solarData, history }) => {
 
   const [chartType, updateChartType] = useState('bar')
   const [yAxisLabel, updateYAxisLabel] = useState('(kWh / m^2) / day')
@@ -162,14 +163,18 @@ const Chart = ({ solarData }) => {
         </div>
       </div>
       <div className="savings-display-bar">
-        <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p>
+        {history ?
+          <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p> :
+          < p > For a true savings estimate, please enter your <Link to = "/historical"> home energy data</Link> </p>
+        }
       </div>
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
-  solarData: state.solarData.outputs
+  solarData: state.solarData.outputs,
+  history: state.solarData.historicalData
 })
 
 export default connect(mapStateToProps, null)(Chart);

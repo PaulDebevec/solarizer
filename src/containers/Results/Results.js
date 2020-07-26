@@ -4,7 +4,7 @@ import './Results.css'
 import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
 
-const Results = ({solarData}) => {
+const Results = ({solarData, history}) => {
     const [savingsValue] = useState(50)
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -41,10 +41,13 @@ const Results = ({solarData}) => {
             </table>
             <div className="results-bottom">
               <Link to="/chart">
-              <button>Graph It!</button>
+                <button>Graph It!</button>
               </Link>
               <div className="savings-display-bar">
-                  <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p>
+                { history ?
+                  <p> Based on your annual energy usage, this solar system would offset {savingsValue} % per year! </p> :
+                  <p> For a true savings estimate, please enter your <Link to = "/historical"> home energy data</Link> </p>
+                }
               </div>
             </div>
         </div>
@@ -52,7 +55,8 @@ const Results = ({solarData}) => {
 }
 
 const mapStateToProps = (state) => ({
-    solarData: state.solarData.outputs
+    solarData: state.solarData.outputs,
+    history: state.solarData.historicalData
 })
 
 
