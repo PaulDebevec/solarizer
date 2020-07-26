@@ -57,7 +57,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
     <>
       {formCompleted && <Redirect push to="/historical" />}
       {quote && <Redirect push to="/historical" />}
-      <section className="background-container">
+      <section className="configure-container">
         <div className="form-card">
           <div className="configure-form-container">
             <form className="configure-form" onSubmit={(e) => handleSubmit(e)}>
