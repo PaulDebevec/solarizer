@@ -1,4 +1,3 @@
-
 export const loadSolarData = (state = {}, action) => {
   switch (action.type) {
     case "SET_SOLAR_DATA":

@@ -9,12 +9,6 @@ const appReducer = combineReducers({
   allUserQuotes: reducers.allUserQuotesReducer,
   solarData: loadSolarData
 })
-// const rootReducer = combineReducers({
-//   userProfile: reducers.currentProfileReducer,
-//   userQuote: reducers.userQuoteReducer,
-//   allUserQuotes: reducers.allUserQuotesReducer,
-//   solarData: loadSolarData 
-// })
 
 const rootReducer = (state, action) => {
   if (action.type === 'USER_LOGOUT') {

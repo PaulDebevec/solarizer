@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './Results.css'
-// import * as actions from '../../actions';
 import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
 

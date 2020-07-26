@@ -11,21 +11,8 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
   const [systemLosses, updateSystemLosses] = useState('')
   const [tilt, updateTilt] = useState('')
   const [azimuth, updateAzimuth] = useState('')
-  // const [isLoading, setIsLoading] = useState(false)
   const [error, updateError] = useState('')
   const [formCompleted, updateFormCompleted] = useState(false)
-
-  // useEffect(() => {
-  //   // setIsLoading(true)
-  //   fetch('https://developer.nrel.gov/api/pvwatts/v6.json?api_key=By8qOhq8GrFH18lkeImHNhinPb7jIbCbibKlQNsS&address=4521A S Crystal Way Aurora CO 80015&system_capacity=4&azimuth=180&tilt=20&array_type=0&module_type=0&losses=14')
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('Failed to fetch')
-  //       }
-  //       return response.json()
-  //     })
-  //     .then(data => loadSolarData(data))
-  // }, [loadSolarData])
 
   const handleSubmit = e => {
     e.preventDefault()

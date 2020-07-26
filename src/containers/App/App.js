@@ -16,7 +16,6 @@ const App = (props) => {
     <>
       <div className="background-container">
         {props.validatedUser && <Header />}
-        {/* <div> */}
         <Ecotip />
         <Switch>
           <Route
@@ -46,7 +45,6 @@ const App = (props) => {
           />
 
         </Switch>
-        {/* </div> */}
       </div>
     </>
   );

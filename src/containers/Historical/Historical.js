@@ -26,7 +26,6 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(e.target.id);
     const splitAddress = userProfile.address.split(' ')
     splitAddress.push(userProfile.city, userProfile.state, userProfile.zipCode)
 
@@ -67,7 +66,6 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
       },
       body: JSON.stringify({
         solarizer_parameters: solarizer_parameters
-        // historical_kWh: historical_kWh
       })
     })
 
@@ -77,7 +75,6 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         }
         return response.json()
       })
-      // .then(data => console.log(data))
       .then(data => {
         let object = { data, historicalData }
         loadSolarData(object)
@@ -214,11 +211,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  // userQuote: (quote) => dispatch(actions.userQuote(quote)),
-  // allUserQuotes: (userQuote) => dispatch(actions.allUserQuotes(userQuote)),
   loadSolarData: (data) => dispatch(actions.loadSolarData(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Historical);
-
-// export default Historical;

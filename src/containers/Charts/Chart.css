@@ -10,9 +10,9 @@
   padding: 50px 0;
 }
 .larger-chart-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .configure-selects {
@@ -26,12 +26,12 @@
 }
 
 .single-chart-box {
-    background-color: whitesmoke;
-    padding: 1em;
-    margin: 1em;
-    height: 40vh;
-    width: 40vw;
-    text-align: center;
+  background-color: whitesmoke;
+  padding: 1em;
+  margin: 1em;
+  height: 40vh;
+  width: 40vw;
+  text-align: center;
 }
 
 .savings-display-bar {

@@ -1,20 +1,5 @@
-
-/* button {
-  color: #1D9AF2;
-  background-color: #292D3E;
-  border: 1px solid #1D9AF2;
-  border-radius: 4px;
-  padding: 0 15px;
-  cursor: pointer;
-  height: 32px;
-  font-size: 14px;
-  transition: all 0.2s ease-in-out;
-} */
-
 .home-btn, button {
     margin-top: 15px;
-    /* margin-top: 7.5em; */
-    /* padding: 2.5em 5em; */
     padding: 10px 40px;
     border-radius: 5px;
     align-self: center;
@@ -34,14 +19,12 @@ button:hover {
 }
 
 .background-container {
-  /* justify-content: flex-end; */
   position: relative;
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  /* padding: 6% 0; */
   background-image: linear-gradient(
       rgba(6, 18, 90, 0.2),
       rgba(14, 44, 99, 0.2)
