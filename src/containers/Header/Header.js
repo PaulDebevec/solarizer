@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './Header.css';
 import sun from '../../images/sun.svg'
 import { connect } from 'react-redux'
