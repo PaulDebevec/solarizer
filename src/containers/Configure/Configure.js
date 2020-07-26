@@ -11,21 +11,8 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
   const [systemLosses, updateSystemLosses] = useState('')
   const [tilt, updateTilt] = useState('')
   const [azimuth, updateAzimuth] = useState('')
-  // const [isLoading, setIsLoading] = useState(false)
   const [error, updateError] = useState('')
   const [formCompleted, updateFormCompleted] = useState(false)
-
-  // useEffect(() => {
-  //   // setIsLoading(true)
-  //   fetch('https://developer.nrel.gov/api/pvwatts/v6.json?api_key=By8qOhq8GrFH18lkeImHNhinPb7jIbCbibKlQNsS&address=4521A S Crystal Way Aurora CO 80015&system_capacity=4&azimuth=180&tilt=20&array_type=0&module_type=0&losses=14')
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('Failed to fetch')
-  //       }
-  //       return response.json()
-  //     })
-  //     .then(data => loadSolarData(data))
-  // }, [loadSolarData])
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -38,7 +25,7 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
     if (systemSize < 1 || systemSize > 10 || systemLosses < 0 || systemLosses > 20
       || tilt < 0 || tilt > 45 || azimuth < 0 || azimuth > 359) {
       return updateError('Please reverify inputs to be in acceptable range')
-      }
+    }
     const quote = {
       systemSize,
       moduleType,
@@ -63,7 +50,6 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
             <form className="configure-form" onSubmit={(e) => handleSubmit(e)}>
               <h3>Configure your array:</h3>
               {error && <p className="error">{error}</p>}
-
               <div className="configure-form-item">
                 <label>System Size (kW): (1-10)</label>
                 <input
@@ -74,7 +60,6 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
                   onChange={e => updateSystemSize(parseFloat(e.target.value))}
                 />
               </div>
-
               <div className="configure-form-item">
                 <label>Module Type:</label>
                 <select
@@ -89,7 +74,6 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
                   <option value={2}>Thin Film</option>
                 </select>
               </div>
-
               <div className="configure-form-item">
                 <label>Array Type:</label>
                 <select
@@ -106,7 +90,6 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
                   <option value={4}>2-Axis Tracking</option>
                 </select>
               </div>
-
               <div className="configure-form-item">
                 <label>System Losses: (0-20%)</label>
                 <input
@@ -117,7 +100,6 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
                   onChange={e => updateSystemLosses(parseFloat(e.target.value))}
                 />
               </div>
-
               <div className="configure-form-item">
                 <label>Tilt: (0-45 degress)</label>
                 <input
@@ -128,7 +110,6 @@ const Configure = ({ userQuote, allUserQuotes, loadSolarData, quote }) => {
                   onChange={e => updateTilt(parseFloat(e.target.value))}
                 />
               </div>
-
               <div className="configure-form-item">
                 <label>Azimuth: (0-359 degress)</label>
                 <input
@@ -156,7 +137,6 @@ const mapDispatchToProps = (dispatch) => ({
   userQuote: (quote) => dispatch(actions.userQuote(quote)),
   allUserQuotes: (userQuote) => dispatch(actions.allUserQuotes(userQuote)),
   loadSolarData: (data) => dispatch(actions.loadSolarData(data))
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Configure);

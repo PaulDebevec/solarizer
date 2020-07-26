@@ -49,8 +49,8 @@
 }
 
 .city-label{
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-title {
@@ -78,19 +78,18 @@ flex-direction: column;
   margin-left: 5%;
 }
 
-
 .home-btn {
-    margin-top: 15px;
-    padding: 10px 40px;
-    border-radius: 5px;
-    align-self: center;
-    cursor: pointer;
-    border: 2px solid #333333;
-    font-size: 1.2rem;
-    font-weight: bold;
-    opacity: .8;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
-    color: #333333;
+  margin-top: 15px;
+  padding: 10px 40px;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+  border: 2px solid #333333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: .8;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  color: #333333;
 }
 
 .error {

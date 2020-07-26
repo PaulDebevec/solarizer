@@ -16,8 +16,6 @@
 
 .configure-form {
   flex-direction: column;
-
-  /* width: 70%; */
 }
 
 .configure-form h3 {
@@ -53,18 +51,18 @@
 }
 
 .form-submit {
-    display: flex;
-    margin: auto;
-    margin-top: 15px;
-    padding: 10px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 2px solid #333333;
-    font-size: 1.2rem;
-    font-weight: bold;
-    opacity: .8;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
-    color: #333333;
+  display: flex;
+  margin: auto;
+  margin-top: 15px;
+  padding: 10px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #333333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: .8;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  color: #333333;
 }
 
 .error {

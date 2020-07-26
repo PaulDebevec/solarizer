@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Bar, Line, Pie } from 'react-chartjs-2'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-// import * as actions from '../../actions';
 import './Chart.css'
 
 
@@ -145,7 +144,6 @@ const Chart = ({ solarData, history }) => {
               {solarData.savings && <option id='Dollars $' data-y-axis='' value="savings">Savings Value</option>}
             </select>
           </div>
-
           <div className="configure-form-item">
             <label>Chart Type</label>
             <select
@@ -157,7 +155,6 @@ const Chart = ({ solarData, history }) => {
               <option value='bar'>Bar</option>
               <option value='line'>Trend (Line)</option>
               <option value='pie'>Pie</option>
-
             </select>
           </div>
         </div>
@@ -165,7 +162,7 @@ const Chart = ({ solarData, history }) => {
       <div className="savings-display-bar">
         {history ?
           <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p> :
-          < p > For a true savings estimate, please enter your <Link to = "/historical"> home energy data</Link> </p>
+          < p > For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
         }
       </div>
     </div>

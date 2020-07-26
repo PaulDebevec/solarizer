@@ -21,12 +21,11 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
   const [historicalData, updateHistoricalData] = useState(false)
 
   const submitClick = (e) => {
-       updateHistoricalData(true)
+    updateHistoricalData(true)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(e.target.id);
     const splitAddress = userProfile.address.split(' ')
     splitAddress.push(userProfile.city, userProfile.state, userProfile.zipCode)
 
@@ -43,22 +42,20 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
       losses: userQuote.systemLosses
     }
 
-    const historical_kWh = {
-      january,
-      february,
-      march,
-      april,
-      may,
-      june,
-      july,
-      august,
-      september,
-      october,
-      november,
-      december
-    }
-    console.log(solarizer_parameters)
-    console.log(historical_kWh)
+    // const historical_kWh = {
+    //   january,
+    //   february,
+    //   march,
+    //   april,
+    //   may,
+    //   june,
+    //   july,
+    //   august,
+    //   september,
+    //   october,
+    //   november,
+    //   december
+    // }
 
     fetch('https://solarizer-api.herokuapp.com/results', {
       method: 'POST',
@@ -66,24 +63,21 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        solarizer_parameters: solarizer_parameters
+        solarizer_parameters: solarizer_parameters,
         // historical_kWh: historical_kWh
       })
     })
-
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch')
         }
         return response.json()
       })
-      // .then(data => console.log(data))
       .then(data => {
         let object = { data, historicalData }
         loadSolarData(object)
       })
       .then(() => updateCompletedInputs(true))
-
   }
 
   return (
@@ -102,7 +96,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={january}
                   // required
-                  onChange={e => updateJanuary(parseFloat(e.target.value))}/>
+                  onChange={e => updateJanuary(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>February:</label>
@@ -110,7 +104,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={february}
                   // required
-                  onChange={e => updateFebruary(parseFloat(e.target.value))}/>
+                  onChange={e => updateFebruary(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>March:</label>
@@ -118,7 +112,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={march}
                   // required
-                  onChange={e => updateMarch(parseFloat(e.target.value))}/>
+                  onChange={e => updateMarch(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>April:</label>
@@ -126,7 +120,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={april}
                   // required
-                  onChange={e => updateApril(parseFloat(e.target.value))}/>
+                  onChange={e => updateApril(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>May:</label>
@@ -134,7 +128,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={may}
                   // required
-                  onChange={e => updateMay(parseFloat(e.target.value))}/>
+                  onChange={e => updateMay(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>June:</label>
@@ -142,7 +136,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={june}
                   // required
-                  onChange={e => updateJune(parseFloat(e.target.value))}/>
+                  onChange={e => updateJune(parseFloat(e.target.value))} />
               </div>
             </div>
 
@@ -153,7 +147,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={july}
                   // required
-                  onChange={e => updateJuly(parseFloat(e.target.value))}/>
+                  onChange={e => updateJuly(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>August:</label>
@@ -161,7 +155,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={august}
                   // required
-                  onChange={e => updateAugust(parseFloat(e.target.value))}/>
+                  onChange={e => updateAugust(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>September:</label>
@@ -169,7 +163,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={september}
                   // required
-                  onChange={e => updateSeptember(parseFloat(e.target.value))}/>
+                  onChange={e => updateSeptember(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>October:</label>
@@ -177,7 +171,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={october}
                   // required
-                  onChange={e => updateOctober(parseFloat(e.target.value))}/>
+                  onChange={e => updateOctober(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>November:</label>
@@ -185,7 +179,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={november}
                   // required
-                  onChange={e => updateNovember(parseFloat(e.target.value))}/>
+                  onChange={e => updateNovember(parseFloat(e.target.value))} />
               </div>
               <div className='month-label-input'>
                 <label>December:</label>
@@ -193,13 +187,13 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                   step='0.01'
                   value={december}
                   // required
-                  onChange={e => updateDecember(parseFloat(e.target.value))}/>
+                  onChange={e => updateDecember(parseFloat(e.target.value))} />
               </div>
             </div>
           </div>
           <div className='historical-buttons-container'>
-            <button type = 'submit' onClick = {submitClick} id = "submit" className = 'historical-buttons'>Submit</button>
-            < button type = 'submit' className = 'historical-buttons'>Skip</button>
+            <button type='submit' onClick={submitClick} id="submit" className='historical-buttons'>Submit</button>
+            <button type='submit' className='historical-buttons'>Skip</button>
           </div>
         </form>
       </div>
@@ -214,11 +208,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  // userQuote: (quote) => dispatch(actions.userQuote(quote)),
-  // allUserQuotes: (userQuote) => dispatch(actions.allUserQuotes(userQuote)),
   loadSolarData: (data) => dispatch(actions.loadSolarData(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Historical);
-
-// export default Historical;
