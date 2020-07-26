@@ -198,19 +198,8 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
             </div>
           </div>
           <div className='historical-buttons-container'>
-            < button type = 'submit'
-            onClick = {
-              submitClick
-            }
-            id = "submit"
-            className = 'historical-buttons' >
-              Submit
-          </button>
-              < button type = 'submit'
-              className = 'historical-buttons' >
-                Skip
-            </button>
-
+            <button type = 'submit' onClick = {submitClick} id = "submit" className = 'historical-buttons'>Submit</button>
+            < button type = 'submit' className = 'historical-buttons'>Skip</button>
           </div>
         </form>
       </div>
