@@ -3,7 +3,7 @@ import './Results.css'
 import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
 
-const Results = ({ solarData, history }) => {
+const Results = ({ solarData }) => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
   const tableData = months.map((item, index) => {
@@ -41,7 +41,7 @@ const Results = ({ solarData, history }) => {
         </Link>
         <div className="savings-display-bar">
           {solarData.percentOffset ?
-            <p> Based on your annual energy usage, this solar system would offset {solarData.percentOffset} % per year! </p> :
+            <p> Based on your annual energy usage, this solar system would offset {Number(solarData.percentOffset).toFixed(2)}% of your electicity cost per year! </p> :
             <p> For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
           }
         </div>
@@ -51,8 +51,7 @@ const Results = ({ solarData, history }) => {
 }
 
 const mapStateToProps = (state) => ({
-  solarData: state.solarData,
-  history: state.solarData.historicalData
+  solarData: state.solarData
 })
 
 

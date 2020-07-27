@@ -158,9 +158,9 @@ const Chart = ({ solarData }) => {
         </div>
       </div>
       <div className="savings-display-bar">
-      {solarData.percentOffset ?
-        <p> Based on your annual energy usage, this solar system would offset {solarData.percentOffset} % per year! </p> :
-        <p> For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
+        {solarData.percentOffset ?
+          <p> Based on your annual energy usage, this solar system would offset {Number(solarData.percentOffset).toFixed(2)}% of your electicity cost per year! </p> :
+          <p> For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
         }
       </div>
     </div>
