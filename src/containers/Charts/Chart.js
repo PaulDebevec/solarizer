@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom'
 import './Chart.css'
 
 
-const Chart = ({ solarData, history }) => {
+const Chart = ({ solarData }) => {
 
   const [chartType, updateChartType] = useState('bar')
   const [yAxisLabel, updateYAxisLabel] = useState('(kWh / m^2) / day')
-  const [savingsValue] = useState(50)
 
   const [data, updateData] = useState({
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -18,8 +17,7 @@ const Chart = ({ solarData, history }) => {
       backgroundColor: 'rgba(75,192,192,1)',
       borderColor: 'whitesmoke',
       borderWidth: 2,
-      data: solarData.solrad_monthly,
-
+      data: solarData.solRadMonthly
     }]
   })
 
@@ -139,9 +137,9 @@ const Chart = ({ solarData, history }) => {
               required
               onChange={e => getSpecificChart(e)}
             >
-              <option id='Solar' data-y-axis='(kWh / m^2) / day' value="solrad_monthly">Solar Radiation</option>
-              <option id='AC' data-y-axis='kWh' value="ac_monthly">AC Monthly</option>
-              {solarData.savings && <option id='Dollars $' data-y-axis='' value="savings">Savings Value</option>}
+              <option id='Solar' data-y-axis='(kWh / m^2) / day' value="solRadMonthly">Solar Radiation</option>
+              <option id='AC' data-y-axis='kWh' value="acMonthly">AC Monthly</option>
+              {solarData.savingsMonthly && <option id='Dollars $' data-y-axis='$' value="savingsMonthly">Savings Value</option>}
             </select>
           </div>
           <div className="configure-form-item">
@@ -160,9 +158,9 @@ const Chart = ({ solarData, history }) => {
         </div>
       </div>
       <div className="savings-display-bar">
-        {history ?
-          <p>Based on your annual energy usage, this solar system would offset {savingsValue}% per year! </p> :
-          < p > For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
+      {solarData.percentOffset ?
+        <p> Based on your annual energy usage, this solar system would offset {solarData.percentOffset} % per year! </p> :
+        <p> For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
         }
       </div>
     </div>
@@ -170,8 +168,7 @@ const Chart = ({ solarData, history }) => {
 }
 
 const mapStateToProps = (state) => ({
-  solarData: state.solarData.outputs,
-  history: state.solarData.historicalData
+  solarData: state.solarData
 })
 
 export default connect(mapStateToProps, null)(Chart);
