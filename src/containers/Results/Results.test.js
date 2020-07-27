@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, getAllByTestId } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -12,9 +12,48 @@ const testStore = createStore(rootReducer)
 
 let data = {
   data: {
-    ac_monthly: [397.03, 429.89, 570.64, 598.79, 609.82, 609.14, 599.88, 583.93, 544.98, 485.94, 412.04, 366.74],
-    solrad_monthly: [3.81, 4.78, 5.75, 6.27, 6.40, 6.97, 6.68, 6.46, 6.07, 5.06, 4.25, 3.53],
-    value_monthly: [43.87, 47.50, 63.05, 66.16, 67.38, 67.31, 66.28, 64.52, 60.22, 53.69, 45.53, 40.52],
+    ac_monthly: [
+      397.03,
+      429.89,
+      570.64,
+      598.79,
+      609.82,
+      609.14,
+      599.88,
+      583.93,
+      544.98,
+      485.94,
+      412.04,
+      366.74
+    ],
+    solrad_monthly: [
+      3.81,
+      4.78,
+      5.75,
+      6.27,
+      6.40,
+      6.97,
+      6.68,
+      6.46,
+      6.07,
+      5.06,
+      4.25,
+      3.53
+    ],
+    value_monthly: [
+      43.87,
+      47.50,
+      63.05,
+      66.16,
+      67.38,
+      67.31,
+      66.28,
+      64.52,
+      60.22,
+      53.69,
+      45.53,
+      40.52
+    ],
     percent_offset: 59,
   },
   historicalData: []
