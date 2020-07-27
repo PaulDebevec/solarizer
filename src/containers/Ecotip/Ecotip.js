@@ -5,7 +5,7 @@ const Ecotip = () => {
   const [ecotip, setEcotip] = useState('');
 
   async function fetchEcotip() {
-    const response = await fetch('https://mysterious-brook-74907.herokuapp.com/ecotip')
+    await fetch('https://mysterious-brook-74907.herokuapp.com/ecotip')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to fetch')
@@ -14,7 +14,7 @@ const Ecotip = () => {
     })
     .then(response => setEcotip(response.ecotip))
   }
-  
+
   useEffect(() => {
     fetchEcotip()
   }, [])
