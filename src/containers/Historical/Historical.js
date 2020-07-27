@@ -6,31 +6,18 @@ import { Redirect } from 'react-router-dom'
 
 const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
   const [completedInputs, updateCompletedInputs] = useState(false)
-  // const [january, updateJanuary] = useState(0)
-  // const [february, updateFebruary] = useState(0)
-  // const [march, updateMarch] = useState(0)
-  // const [april, updateApril] = useState(0)
-  // const [may, updateMay] = useState(0)
-  // const [june, updateJune] = useState(0)
-  // const [july, updateJuly] = useState(0)
-  // const [august, updateAugust] = useState(0)
-  // const [september, updateSeptember] = useState(0)
-  // const [october, updateOctober] = useState(0)
-  // const [november, updateNovember] = useState(0)
-  // const [december, updateDecember] = useState(0)
-  const [historicalData, updateHistoricalData] = useState(false)
-
-  const [dataEntered, setDataEntered] = useState({january: ''})
+  const [dataEntered, setDataEntered] = useState({})
 
   const changeValue = (event) => {
     setDataEntered({ ...dataEntered, [event.target.name]: parseFloat(event.target.value) })
   }
 
-  const submitClick = (e) => {
-    updateHistoricalData(true)
+  const skipClick = (e) => {
+    let resetData = { january: 'undefined', february: '', march: '', april: '', may: '', june: '', july: '', august: '', september: '', october: '', november: '', december: '' }
+    handleSubmit(e, resetData)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, resetData) => {
     e.preventDefault()
     const splitAddress = userProfile.address.split(' ')
     splitAddress.push(userProfile.city, userProfile.state, userProfile.zipCode)
@@ -47,21 +34,12 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
       module_type: userQuote.moduleType,
       losses: userQuote.systemLosses
     }
-
-    // const historical_kWh = {
-    //   january,
-    //   february,
-    //   march,
-    //   april,
-    //   may,
-    //   june,
-    //   july,
-    //   august,
-    //   september,
-    //   october,
-    //   november,
-    //   december
-    // }
+    var historical_kWh = {
+      ...dataEntered
+    }
+    if (resetData) {
+      historical_kWh = resetData
+    }
 
     fetch('https://solarizer-api.herokuapp.com/results', {
       method: 'POST',
@@ -70,7 +48,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
       },
       body: JSON.stringify({
         solarizer_parameters,
-        // historical_kWh
+        historical_kWh
       })
     })
       .then(response => {
@@ -80,8 +58,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         return response.json()
       })
       .then(data => {
-        let object = { data, historicalData }
-        loadSolarData(object)
+        loadSolarData(data)
       })
       .then(() => updateCompletedInputs(true))
   }
@@ -100,60 +77,54 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>January:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.january}
                   name='january'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>February:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.february}
                   name='february'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>March:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.march}
                   name='march'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>April:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.april}
                   name='april'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>May:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.may}
                   name='may'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>June:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.june}
                   name='june'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
             </div>
@@ -162,67 +133,61 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>July:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.july}
                   name='july'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>August:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.august}
                   name='august'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>September:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.september}
                   name='september'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>October:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.october}
                   name='october'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>November:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.november}
                   name='november'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>December:</label>
                 <input type='number'
                   step='0.01'
-                  // value={dataEntered.december}
                   name='december'
                   data-testid='historical-input'
-                  // required
+                  required
                   onChange={e => changeValue(e)} />
               </div>
             </div>
           </div>
           <div className='historical-buttons-container'>
-            <button type='submit' onClick={submitClick} id="submit" className='historical-buttons'>Submit</button>
-            <button type='submit' className='historical-buttons'>Skip</button>
+            <button type='submit' id="submit" className='historical-buttons'>Submit</button>
+            <button type='button' onClick={(e) => skipClick(e)} className='historical-buttons'>Skip</button>
           </div>
         </form>
       </div>
@@ -233,7 +198,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
 const mapStateToProps = (state) => ({
   userProfile: state.userProfile,
   userQuote: state.userQuote,
-  history: state.solarData.historicalData
+  history: state.solarData.percentOffset
 })
 
 const mapDispatchToProps = (dispatch) => ({
