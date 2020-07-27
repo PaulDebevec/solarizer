@@ -4,15 +4,19 @@ import './Ecotip.css';
 const Ecotip = () => {
   const [ecotip, setEcotip] = useState('');
 
+  async function fetchEcotip() {
+    await fetch('https://mysterious-brook-74907.herokuapp.com/ecotip')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch')
+      }
+      return response.json()
+    })
+    .then(response => setEcotip(response.ecotip))
+  }
+
   useEffect(() => {
-    fetch('https://mysterious-brook-74907.herokuapp.com/ecotip')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch')
-        }
-        return response.json()
-      })
-      .then(response => setEcotip(response.ecotip))
+    fetchEcotip()
   }, [])
 
   return (
