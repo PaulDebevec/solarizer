@@ -20,7 +20,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
   // const [december, updateDecember] = useState(0)
   const [historicalData, updateHistoricalData] = useState(false)
 
-  const [dataEntered, setDataEntered] = useState({})
+  const [dataEntered, setDataEntered] = useState({january: ''})
 
   const changeValue = (event) => {
     setDataEntered({ ...dataEntered, [event.target.name]: parseFloat(event.target.value) })
