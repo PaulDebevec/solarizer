@@ -6,18 +6,18 @@ import { Redirect } from 'react-router-dom'
 
 const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
   const [completedInputs, updateCompletedInputs] = useState(false)
-  const [january, updateJanuary] = useState(undefined)
-  const [february, updateFebruary] = useState(undefined)
-  const [march, updateMarch] = useState(undefined)
-  const [april, updateApril] = useState(undefined)
-  const [may, updateMay] = useState(undefined)
-  const [june, updateJune] = useState(undefined)
-  const [july, updateJuly] = useState(undefined)
-  const [august, updateAugust] = useState(undefined)
-  const [september, updateSeptember] = useState(undefined)
-  const [october, updateOctober] = useState(undefined)
-  const [november, updateNovember] = useState(undefined)
-  const [december, updateDecember] = useState(undefined)
+  const [january, updateJanuary] = useState(0)
+  const [february, updateFebruary] = useState(0)
+  const [march, updateMarch] = useState(0)
+  const [april, updateApril] = useState(0)
+  const [may, updateMay] = useState(0)
+  const [june, updateJune] = useState(0)
+  const [july, updateJuly] = useState(0)
+  const [august, updateAugust] = useState(0)
+  const [september, updateSeptember] = useState(0)
+  const [october, updateOctober] = useState(0)
+  const [november, updateNovember] = useState(0)
+  const [december, updateDecember] = useState(0)
   const [historicalData, updateHistoricalData] = useState(false)
 
   const submitClick = (e) => {
@@ -63,8 +63,8 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        solarizer_parameters: solarizer_parameters,
-        // historical_kWh: historical_kWh
+        solarizer_parameters,
+        // historical_kWh
       })
     })
       .then(response => {
