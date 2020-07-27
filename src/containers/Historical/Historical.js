@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import './Historical.css'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
@@ -6,19 +6,26 @@ import { Redirect } from 'react-router-dom'
 
 const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
   const [completedInputs, updateCompletedInputs] = useState(false)
-  const [january, updateJanuary] = useState(0)
-  const [february, updateFebruary] = useState(0)
-  const [march, updateMarch] = useState(0)
-  const [april, updateApril] = useState(0)
-  const [may, updateMay] = useState(0)
-  const [june, updateJune] = useState(0)
-  const [july, updateJuly] = useState(0)
-  const [august, updateAugust] = useState(0)
-  const [september, updateSeptember] = useState(0)
-  const [october, updateOctober] = useState(0)
-  const [november, updateNovember] = useState(0)
-  const [december, updateDecember] = useState(0)
+  // const [january, updateJanuary] = useState(0)
+  // const [february, updateFebruary] = useState(0)
+  // const [march, updateMarch] = useState(0)
+  // const [april, updateApril] = useState(0)
+  // const [may, updateMay] = useState(0)
+  // const [june, updateJune] = useState(0)
+  // const [july, updateJuly] = useState(0)
+  // const [august, updateAugust] = useState(0)
+  // const [september, updateSeptember] = useState(0)
+  // const [october, updateOctober] = useState(0)
+  // const [november, updateNovember] = useState(0)
+  // const [december, updateDecember] = useState(0)
   const [historicalData, updateHistoricalData] = useState(false)
+
+  const [dataEntered, setDataEntered] = useState({})
+
+  const changeValue = useCallback((event) => {
+    setDataEntered({ ...dataEntered, [event.target.name]: parseFloat(event.target.value) })
+  }, [dataEntered],
+  )
 
   const submitClick = (e) => {
     updateHistoricalData(true)
@@ -94,55 +101,61 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>January:</label>
                 <input type='number'
                   step='0.01'
-                  value={january}
+                  value={dataEntered.january}
+                  name='january'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateJanuary(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>February:</label>
                 <input type='number'
                   step='0.01'
-                  value={february}
+                  value={dataEntered.february}
+                  name='february'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateFebruary(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>March:</label>
                 <input type='number'
                   step='0.01'
-                  value={march}
+                  value={dataEntered.march}
+                  name='march'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateMarch(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>April:</label>
                 <input type='number'
                   step='0.01'
-                  value={april}
+                  value={dataEntered.april}
+                  name='april'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateApril(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>May:</label>
                 <input type='number'
                   step='0.01'
-                  value={may}
+                  value={dataEntered.may}
+                  name='may'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateMay(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>June:</label>
                 <input type='number'
                   step='0.01'
-                  value={june}
+                  value={dataEntered.june}
+                  name='june'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateJune(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
             </div>
             <div className='historical-inputs-column'>
@@ -150,55 +163,61 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>July:</label>
                 <input type='number'
                   step='0.01'
-                  value={july}
+                  value={dataEntered.july}
+                  name='july'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateJuly(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>August:</label>
                 <input type='number'
                   step='0.01'
-                  value={august}
+                  value={dataEntered.august}
+                  name='august'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateAugust(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>September:</label>
                 <input type='number'
                   step='0.01'
-                  value={september}
+                  value={dataEntered.september}
+                  name='september'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateSeptember(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>October:</label>
                 <input type='number'
                   step='0.01'
-                  value={october}
+                  value={dataEntered.october}
+                  name='october'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateOctober(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>November:</label>
                 <input type='number'
                   step='0.01'
-                  value={november}
+                  value={dataEntered.november}
+                  name='november'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateNovember(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
               <div className='month-label-input'>
                 <label>December:</label>
                 <input type='number'
                   step='0.01'
-                  value={december}
+                  value={dataEntered.december}
+                  name='december'
                   data-testid='historical-input'
                   // required
-                  onChange={e => updateDecember(parseFloat(e.target.value))} />
+                  onChange={e => changeValue(e)} />
               </div>
             </div>
           </div>
