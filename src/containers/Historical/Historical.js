@@ -95,7 +95,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={january}
-                  data-testid='january'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateJanuary(parseFloat(e.target.value))} />
               </div>
@@ -104,7 +104,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={february}
-                  data-testid='february'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateFebruary(parseFloat(e.target.value))} />
               </div>
@@ -113,7 +113,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={march}
-                  data-testid='march'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateMarch(parseFloat(e.target.value))} />
               </div>
@@ -122,7 +122,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={april}
-                  data-testid='april'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateApril(parseFloat(e.target.value))} />
               </div>
@@ -131,7 +131,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={may}
-                  data-testid='may'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateMay(parseFloat(e.target.value))} />
               </div>
@@ -140,7 +140,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={june}
-                  data-testid='june'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateJune(parseFloat(e.target.value))} />
               </div>
@@ -151,7 +151,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={july}
-                  data-testid='july'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateJuly(parseFloat(e.target.value))} />
               </div>
@@ -160,7 +160,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={august}
-                  data-testid='august'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateAugust(parseFloat(e.target.value))} />
               </div>
@@ -169,7 +169,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={september}
-                  data-testid='september'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateSeptember(parseFloat(e.target.value))} />
               </div>
@@ -178,7 +178,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={october}
-                  data-testid='october'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateOctober(parseFloat(e.target.value))} />
               </div>
@@ -187,7 +187,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={november}
-                  data-testid='november'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateNovember(parseFloat(e.target.value))} />
               </div>
@@ -196,7 +196,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <input type='number'
                   step='0.01'
                   value={december}
-                  data-testid='december'
+                  data-testid='historical-input'
                   // required
                   onChange={e => updateDecember(parseFloat(e.target.value))} />
               </div>
