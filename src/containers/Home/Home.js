@@ -52,15 +52,16 @@ const Home = ({ setCurrentProfile, user }) => {
         /> */}
         <div className="home-form-inputs-section">
           <div className="home-form-item">
-            <label>Street Address</label>
-            <input
-              data-testid="street-address"
-              type="text"
-              name="address"
-              value={address}
-              required
-              onChange={e => updateAddress(e.target.value)}
-            />
+            <label>Street Address
+              <input
+                data-testid="street-address"
+                type="text"
+                name="address"
+                value={address}
+                required
+                onChange={e => updateAddress(e.target.value)}
+              />
+            </label>
           </div>
           <div className="city-state">
             <div className="home-form-item">
@@ -83,15 +84,16 @@ const Home = ({ setCurrentProfile, user }) => {
             </div>
           </div>
           <div className="home-form-item">
-            <label>Zip Code</label>
-            <input
-              title="zip-code"
-              type="number" maxLength="5"
-              name="zipCode"
-              value={zipCode}
-              required
-              onChange={e => updateZipCode(e.target.value)}
-            />
+            <label>Zip Code
+              <input
+                title="zip-code"
+                type="number" maxLength="5"
+                name="zipCode"
+                value={zipCode}
+                required
+                onChange={e => updateZipCode(e.target.value)}
+              />
+            </label>
           </div>
         </div>
         <button className="home-btn" type="submit">Begin</button>
