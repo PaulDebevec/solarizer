@@ -22,10 +22,9 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
 
   const [dataEntered, setDataEntered] = useState({})
 
-  const changeValue = useCallback((event) => {
+  const changeValue = (event) => {
     setDataEntered({ ...dataEntered, [event.target.name]: parseFloat(event.target.value) })
-  }, [dataEntered],
-  )
+  }
 
   const submitClick = (e) => {
     updateHistoricalData(true)
@@ -101,7 +100,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>January:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.january}
+                  // value={dataEntered.january}
                   name='january'
                   data-testid='historical-input'
                   // required
@@ -111,7 +110,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>February:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.february}
+                  // value={dataEntered.february}
                   name='february'
                   data-testid='historical-input'
                   // required
@@ -121,7 +120,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>March:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.march}
+                  // value={dataEntered.march}
                   name='march'
                   data-testid='historical-input'
                   // required
@@ -131,7 +130,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>April:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.april}
+                  // value={dataEntered.april}
                   name='april'
                   data-testid='historical-input'
                   // required
@@ -141,7 +140,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>May:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.may}
+                  // value={dataEntered.may}
                   name='may'
                   data-testid='historical-input'
                   // required
@@ -151,7 +150,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>June:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.june}
+                  // value={dataEntered.june}
                   name='june'
                   data-testid='historical-input'
                   // required
@@ -163,7 +162,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>July:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.july}
+                  // value={dataEntered.july}
                   name='july'
                   data-testid='historical-input'
                   // required
@@ -173,7 +172,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>August:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.august}
+                  // value={dataEntered.august}
                   name='august'
                   data-testid='historical-input'
                   // required
@@ -183,7 +182,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>September:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.september}
+                  // value={dataEntered.september}
                   name='september'
                   data-testid='historical-input'
                   // required
@@ -193,7 +192,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>October:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.october}
+                  // value={dataEntered.october}
                   name='october'
                   data-testid='historical-input'
                   // required
@@ -203,7 +202,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>November:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.november}
+                  // value={dataEntered.november}
                   name='november'
                   data-testid='historical-input'
                   // required
@@ -213,7 +212,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
                 <label>December:</label>
                 <input type='number'
                   step='0.01'
-                  value={dataEntered.december}
+                  // value={dataEntered.december}
                   name='december'
                   data-testid='historical-input'
                   // required
