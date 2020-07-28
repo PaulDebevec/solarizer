@@ -1,12 +1,12 @@
 .results-container {
   background-image: linear-gradient(#6B9AC4, #EFF2F1);
-  opacity: 0.82;
+  /* opacity: 0.82; */
   border: 2px solid lightblue;
   width: 50%;
-  max-width: 40em;
+  max-width: 50em;
   margin-top: 4%;
-  padding-bottom: 0%;
   padding: 3%;
+  padding-bottom: 2%;
   border-radius: 7px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
@@ -80,4 +80,8 @@ tr:hover {
 .results-bottom button {
   margin-top: 0%;
   margin-bottom: 1%;
+}
+
+.savings-display-bar {
+    margin-top: 3em;
 }
