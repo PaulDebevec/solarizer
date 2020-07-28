@@ -27,6 +27,11 @@ const Header = ({ user, solarData, clearAllData }) => {
           </NavLink>
         }
         {user &&
+          <NavLink to="/solarizerfaq" exact className="nav">
+            FAQ's
+          </NavLink>
+        }
+        {user &&
           <NavLink to="/" exact className="nav"
             onClick={clearAllData}>
             New Address
