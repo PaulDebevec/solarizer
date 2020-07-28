@@ -107,6 +107,81 @@ describe('App', () => {
     expect(ecotipTitle).toBeInTheDocument()
   })
 
+  it('should not render a header on the homepage', () => {
+    const { queryAllByRole, queryByAltText, queryByText } = appTestWrapper()
+
+    const allImages = queryAllByRole('img')
+    const sunImg = queryByAltText('sun')
+    const titlePart1 = queryByText('S')
+    const titlePart2 = queryByText('larizer')
+
+    expect(allImages).not.toBeInTheDocument
+    expect(sunImg).not.toBeInTheDocument
+    expect(titlePart1).not.toBeInTheDocument
+    expect(titlePart2).not.toBeInTheDocument
+  })
+
+  it('should render a header and the configure page once the user fills out and submits the first form', () => {
+    const { getAllByRole, getByAltText, getByText, getByLabelText, getByDisplayValue } = appTestWrapper()
+
+    const addressInput = getByLabelText('Street Address')
+    const cityInput = getByLabelText('City')
+    const stateInput = getByDisplayValue('Select State..')
+    const zipCodeInput = getByLabelText('Zip Code')
+    const beginButton = getByText('Begin')
+    fireEvent.change(addressInput, { target: { value: '123 Test St' } })
+    fireEvent.change(cityInput, { target: { value: 'Denver' } })
+    fireEvent.change(stateInput, { target: { value: 'CO' } })
+    fireEvent.change(zipCodeInput, { target: { value: '80222' } })
+    fireEvent.click(beginButton)
+
+    const title = getByText('Configure your array:')
+    const sizeLabel = getByText('System Size (kW) (1-10):')
+    const sizeInput = getByLabelText('System Size (kW) (1-10):')
+    const moduleTypeLabel = getByText('Module Type:')
+    const moduleTypeInput = getByLabelText('Module Type:')
+    const arrayTypeLabel = getByText('Array Type:')
+    const arrayTypeInput = getByLabelText('Array Type:')
+    const systemLossesLabel = getByText('System Losses (0-20%):')
+    const systemLossesInput = getByLabelText('System Losses (0-20%):')
+    const tiltLabel = getByText('Tilt (0-45 degrees):')
+    const tiltInput = getByLabelText('Tilt (0-45 degrees):')
+    const azimuthLabel = getByText('Azimuth (0-359 degrees):')
+    const azimuthInput = getByLabelText('Azimuth (0-359 degrees):')
+    const submitButton = getByText('Submit')
+
+    const allImages = getAllByRole('img')
+    const sunImg = getByAltText('sun')
+    const titlePart1 = getByText('S')
+    const titlePart2 = getByText('larizer')
+
+    const ecotipTitle = getByText('Ecotip')
+
+    expect(title).toBeInTheDocument()
+    expect(sizeLabel).toBeInTheDocument()
+    expect(sizeInput).toBeInTheDocument()
+    expect(moduleTypeLabel).toBeInTheDocument()
+    expect(moduleTypeInput).toBeInTheDocument()
+    expect(arrayTypeLabel).toBeInTheDocument()
+    expect(arrayTypeInput).toBeInTheDocument()
+    expect(systemLossesLabel).toBeInTheDocument()
+    expect(systemLossesInput).toBeInTheDocument()
+    expect(tiltLabel).toBeInTheDocument()
+    expect(tiltInput).toBeInTheDocument()
+    expect(azimuthLabel).toBeInTheDocument()
+    expect(azimuthInput).toBeInTheDocument()
+    expect(submitButton).toBeInTheDocument()
+
+    expect(allImages).toHaveLength(1)
+    expect(sunImg).toBeInTheDocument()
+    expect(titlePart1).toBeInTheDocument()
+    expect(titlePart2).toBeInTheDocument()
+
+    expect(ecotipTitle).toBeInTheDocument()
+
+    expect(window.location.pathname).toBe('/configure')
+  })
+
 
 
 })
