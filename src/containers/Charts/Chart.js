@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Bar, Line, Pie } from 'react-chartjs-2'
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import './Chart.css'
 
 
-const Chart = ({ solarData }) => {
+const Chart = ({ solarData, user }) => {
 
   const [chartType, updateChartType] = useState('bar')
   const [yAxisLabel, updateYAxisLabel] = useState('(kWh / m^2) / day')
@@ -43,6 +43,8 @@ const Chart = ({ solarData }) => {
   }
 
   return (
+    <>
+    {!user && <Redirect push to="/" />}
     <div className="configure-container">
       <div className="larger-chart-box">
         <div className="single-chart-box">
@@ -165,11 +167,13 @@ const Chart = ({ solarData }) => {
         }
       </div>
     </div>
+    </>
   )
 }
 
 const mapStateToProps = (state) => ({
-  solarData: state.solarData
+  solarData: state.solarData,
+  user: state.userProfile.validatedUser
 })
 
 export default connect(mapStateToProps, null)(Chart);
