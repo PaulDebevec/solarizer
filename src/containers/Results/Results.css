@@ -5,10 +5,16 @@
   width: 50%;
   max-width: 50em;
   margin-top: 4%;
-  padding: 3%;
+  padding: 1%;
   padding-bottom: 2%;
   border-radius: 7px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.results-title {
+  text-align: center;
+  margin-top: 0;
+  color: wheat;
 }
 
 table {
@@ -22,13 +28,14 @@ table {
 }
 
 th {
-  color: purple;
+  color: black;
   border-bottom: 2px solid gray;
   padding: 2.5%;
+  background-color: white;
 }
 
 td {
-  color: #039e03;
+  /* color: #039e03; */
   margin: 1%;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
@@ -36,10 +43,13 @@ td {
 
 tr {
   margin-top: 5%;
+  background-color: #97D8C4;
+  color: black;
 }
 
 tr:nth-child(even) {
-  background-color: #eae4e4;
+  background-color: #EFF2F1;
+  color: black;
 }
 
 tr:hover {
