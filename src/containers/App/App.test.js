@@ -70,6 +70,43 @@ const appTestWrapper = () => {
 
 describe('App', () => {
   it('should render the correct content on the starting page', () => {
-    const { getByText } = appTestWrapper()
+    const { getAllByRole, getByAltText, getByText, getByLabelText, getByDisplayValue } = appTestWrapper()
+
+    const allImages = getAllByRole('img')
+    const sunImg = getByAltText('sun')
+    const titlePart2 = getByText('larizer')
+    const subtitle = getByText('Start Solarizing Now:')
+    const addressLabel = getByText('Street Address')
+    const addressInput = getByLabelText('Street Address')
+    const cityLabel = getByText('City')
+    const cityInput = getByLabelText('City')
+    const stateInput = getByDisplayValue('Select State..')
+    const zipCodeLabel = getByText('Zip Code')
+    const zipCodeInput = getByLabelText('Zip Code')
+    const beginButton = getByText('Begin')
+    const faq = getByText('What is Solarizer?')
+
+    const ecotipTitle = getByText('Ecotip')
+
+    expect(window.location.pathname).toBe('/')
+
+    expect(allImages).toHaveLength(1)
+    expect(sunImg).toBeInTheDocument()
+    expect(titlePart2).toBeInTheDocument()
+    expect(subtitle).toBeInTheDocument()
+    expect(addressLabel).toBeInTheDocument()
+    expect(addressInput).toBeInTheDocument()
+    expect(cityLabel).toBeInTheDocument()
+    expect(cityInput).toBeInTheDocument()
+    expect(stateInput).toBeInTheDocument()
+    expect(zipCodeLabel).toBeInTheDocument()
+    expect(zipCodeInput).toBeInTheDocument()
+    expect(beginButton).toBeInTheDocument()
+    expect(faq).toBeInTheDocument()
+
+    expect(ecotipTitle).toBeInTheDocument()
   })
+
+
+
 })
