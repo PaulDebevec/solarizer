@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Ecotip.css';
-import { } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Ecotip = () => {
   const [ecotip, setEcotip] = useState('');
@@ -16,11 +16,11 @@ const Ecotip = () => {
       .then(response => setEcotip(response.description))
   }
 
-
+  let history = useLocation()
 
   useEffect(() => {
     fetchEcotip()
-  }, [])
+  }, [history])
 
 
   return (
