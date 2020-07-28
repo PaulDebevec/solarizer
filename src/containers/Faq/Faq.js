@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Faq.css';
-// import { faqData } from './faqData'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 const Faq = ({faqData}) => {
-console.log(faqData);
 
   let mappedFaqs = faqData.map(item=> {
     return (
@@ -33,4 +31,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps) (Faq);
-// export default Faq
