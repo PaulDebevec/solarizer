@@ -293,6 +293,23 @@ describe('App', () => {
     expect(results).toBeInTheDocument()
   })
 
+  it('after clicking the graph it button, bring the user to a page where their results are presented on a graph with dropdowns to select chart type, and what data to use', () => {
+    const { getByText } = appTestWrapper()
 
+    const graphButton = getByText('Graph It!')
+    fireEvent.click(graphButton)
+
+    expect(window.location.pathname).toBe('/chart')
+
+    const bar = getByText('Bar')
+    const line = getByText('Trend (Line)')
+    const pie = getByText('Pie')
+    const savingsMessage = getByText('Based on your annual energy usage, this solar system would offset 59.00% of your electicity cost per year!')
+
+    expect(bar).toBeInTheDocument()
+    expect(line).toBeInTheDocument()
+    expect(pie).toBeInTheDocument()
+    expect(savingsMessage).toBeInTheDocument()
+  })
 
 })
