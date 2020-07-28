@@ -9,7 +9,7 @@ const Results = ({ solarData }) => {
   const tableData = months.map((item, index) => {
     return (
       <tr key={item}>
-        <td>{item}</td>
+        <td className='text-left'>{item}</td>
         <td>{Number(solarData.solRadMonthly[index]).toFixed(2)}</td>
         <td>{Number(solarData.acMonthly[index]).toFixed(2)}</td>
         <td>{Number(solarData.savingsMonthly[index]).toFixed(2)}</td>
