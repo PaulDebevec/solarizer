@@ -9,7 +9,7 @@ const Error = ({clearAllData})  => {
         <div className="address-form">
         <p>Oops! A Wrong Path was taken.</p>
             <Link to='/' >
-                <button className='back-to-login-btn' onClick={clearAllData}>Go Back to Home Page</button>
+                <button onClick={clearAllData}>Go Back to Home Page</button>
             </Link >
         </div>
     )
