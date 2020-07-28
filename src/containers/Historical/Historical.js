@@ -61,7 +61,10 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
         loadSolarData(data)
       })
       .then(() => updateCompletedInputs(true))
-  }
+      .catch((error) => {
+        window.alert(`Server Error. It's not your fault the error is: ${error}`)
+      })
+    }
 
   return (
     <>
@@ -194,6 +197,7 @@ const Historical = ({ userProfile, userQuote, loadSolarData, history }) => {
     </>
   )
 }
+
 
 const mapStateToProps = (state) => ({
   userProfile: state.userProfile,
