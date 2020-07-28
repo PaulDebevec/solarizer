@@ -130,7 +130,7 @@ const Chart = ({ solarData }) => {
         </div>
         <div className="chart-selection-options">
           <div className="configure-form-item">
-            <label>Chart Data</label>
+            <label alt="Chart Date" htmlFor="chartData">Chart Data</label>
             <select
               className="configure-selects"
               defaultValue={"Solar Radiation"}
@@ -139,15 +139,16 @@ const Chart = ({ solarData }) => {
             >
               <option id='Solar' data-y-axis='(kWh / m^2) / day' value="solRadMonthly">Solar Radiation</option>
               <option id='AC' data-y-axis='kWh' value="acMonthly">AC Monthly</option>
-              {solarData.savingsMonthly && <option id='Dollars $' data-y-axis='$' value="savingsMonthly">Savings Value</option>}
+              <option id='Dollars $' data-y-axis='Dollars $' value="savingsMonthly">Savings Value</option>
             </select>
           </div>
           <div className="configure-form-item">
-            <label>Chart Type</label>
+            <label alt="ChartType" htmlFor="chartType">Chart Type</label>
             <select
               className="configure-selects"
               defaultValue={'bar'}
               required
+              name="chartType"
               onChange={e => updateChartType(e.target.value)}
             >
               <option value='bar'>Bar</option>
