@@ -312,4 +312,29 @@ describe('App', () => {
     expect(savingsMessage).toBeInTheDocument()
   })
 
+  it('should allow the user to click the newAddress button in the header, after which they will be brought back to the homepage where they will be able to start over and the header is no longer there', () => {
+    const { getByText, queryByText } = appTestWrapper()
+
+    const newAddressButton = getByText('New Address')
+    fireEvent.click(newAddressButton)
+
+    expect(window.location.pathname).toBe('/')
+
+    const newAddress = queryByText('New Address')
+    const chart = queryByText('Charts')
+    const results = queryByText('Results')
+
+    expect(newAddress).not.toBeInTheDocument()
+    expect(chart).not.toBeInTheDocument()
+    expect(results).not.toBeInTheDocument()
+
+    const homepageSubtitle = getByText('Start Solarizing Now:')
+    const addressInputLabel = getByText('Street Address')
+    const homepageBeginButton = getByText('Begin')
+
+    expect(homepageSubtitle).toBeInTheDocument()
+    expect(addressInputLabel).toBeInTheDocument()
+    expect(homepageBeginButton).toBeInTheDocument()
+  })
+
 })
