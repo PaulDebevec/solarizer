@@ -7,7 +7,6 @@ import ListOfStates from './ListOfStates';
 import sun from '../../images/sun.svg'
 
 const Home = ({ setCurrentProfile, user }) => {
-  // const [name, updateName] = useState('')
   const [address, updateAddress] = useState('')
   const [city, updateCity] = useState('')
   const [state, updateState] = useState('')
@@ -42,14 +41,6 @@ const Home = ({ setCurrentProfile, user }) => {
         {error &&
           <p className="error">{error}</p>
         }
-        {/* <input
-          type="text"
-          name="name"
-          placeholder="name"
-          value={name}
-          required
-          onChange={e => updateName(e.target.value)}
-        /> */}
         <div className="home-form-inputs-section">
           <div className="home-form-item">
             <label>Street Address
