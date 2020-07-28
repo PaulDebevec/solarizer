@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import './App.css';
-import * as actions from '../../actions';
 import Home from '../Home/Home'
 import Ecotip from '../Ecotip/Ecotip'
 import Header from '../Header/Header'

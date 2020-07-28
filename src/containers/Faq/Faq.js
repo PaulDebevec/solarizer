@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Faq.css';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
