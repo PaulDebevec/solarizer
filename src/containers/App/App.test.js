@@ -6,6 +6,13 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers/index';
 import App from './App'
+import { Bar, Line, Pie } from 'react-chartjs-2'
+jest.mock('react-chartjs-2', () => ({
+  Bar: () => null,
+  Line: () => null,
+  Pie: () => null
+}));
+
 
 let data = {
   ac_monthly: [
