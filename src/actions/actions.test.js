@@ -88,4 +88,23 @@ describe('Actions', () => {
     expect(result).toEqual(expectedAction)
   })
 
+    it('should have a SET_SOLAR_FAQS with a correct payload', () => {
+      const data = [
+        {faq: "Overview", answer: "Solarizer is a web app for solar energy enthusiast…voltaic (PV) system based on a few simple inputs."},
+        {faq: "Get Started", answer: "Users provide information about the system 's loca…and an estimate of the value of that electricity."},
+        {faq: "System Size", answer: "System Size is the DC (direct current) power ratin…test conditions. The default size if usually 4kW."},
+        {faq: "Module Type", answer: "Module Type describes the PV modules in the solar array.  Most module types will be Standard."},
+        {faq: "Array Type", answer: "The array type describes whether the PV modules in… option is appropriate for ground-mounted systems"},
+        {faq: "System Losses", answer: "The system losses account for performance losses y… more.  The default system loss percentage is 14%"},
+        {faq: "Tilt", answer: "The tilt angle is the angle from horizontal of the…y between 0-45%. The default value is 20 degrees."},
+        {faq: "Azimuth", answer: "For a fixed array, the azimuth angle is the angle …= 135°, S = 180°, SW = 225°, W = 270°, SW = 315 °"},
+        {faq: "Retail Electricty Rate", answer: "The national average rate is 11 cents per kWh"},
+        ]
+      const expectedAction = {
+        type: 'SET_SOLAR_FAQS',
+        data
+      }
+      const result = actions.loadSolarFaqs(data)
+      expect(result).toEqual(expectedAction)
+    })
 })

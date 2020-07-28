@@ -9,6 +9,8 @@ import Historical from '../Historical/Historical';
 import { connect } from 'react-redux'
 import Chart from '../Charts/Chart';
 import Results from '../Results/Results'
+import Error from '../Error/Error'
+import Faq from '../Faq/Faq'
 
 const App = (props) => {
 
@@ -43,6 +45,12 @@ const App = (props) => {
             exact
             render={() => <Results />}
           />
+          <Route
+            path="/solarizerfaq"
+            exact
+            render={() => <Faq />}
+          />
+          <Route path='*'  render ={ () => <Error />}/>
         </Switch>
       </div>
     </>
@@ -54,4 +62,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps)(App);

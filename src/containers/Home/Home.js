@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from "react-router-dom";
 import './Home.css';
 import * as actions from '../../actions';
@@ -6,8 +6,7 @@ import { connect } from 'react-redux'
 import ListOfStates from './ListOfStates';
 import sun from '../../images/sun.svg'
 
-const Home = ({ setCurrentProfile, user }) => {
-  // const [name, updateName] = useState('')
+const Home = ({ setCurrentProfile, user, loadSolarFaqs }) => {
   const [address, updateAddress] = useState('')
   const [city, updateCity] = useState('')
   const [state, updateState] = useState('')
@@ -28,6 +27,23 @@ const Home = ({ setCurrentProfile, user }) => {
     updateValidatedUser(true)
   }
 
+  useEffect(() => {
+    async function fetchSolarFaqs() {
+    await fetch('https://secret-meadow-99085.herokuapp.com/api/v1/faq')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch')
+      }
+      return response.json()
+    })
+    .then(response => loadSolarFaqs(response))
+    .catch((error) => {
+      window.alert(`Server Error. It's not your fault the error is: ${error}`)
+    })
+  }
+  fetchSolarFaqs()
+}, [loadSolarFaqs])
+
   return (
     <>
       {user && <Redirect push to="/configure" />}
@@ -42,14 +58,6 @@ const Home = ({ setCurrentProfile, user }) => {
         {error &&
           <p className="error">{error}</p>
         }
-        {/* <input
-          type="text"
-          name="name"
-          placeholder="name"
-          value={name}
-          required
-          onChange={e => updateName(e.target.value)}
-        /> */}
         <div className="home-form-inputs-section">
           <div className="home-form-item">
             <label>Street Address
@@ -110,7 +118,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentProfile: (userProfile) => dispatch(actions.currentUserProfile(userProfile))
+  setCurrentProfile: (userProfile) => dispatch(actions.currentUserProfile(userProfile)),
+  loadSolarFaqs: (data) => dispatch(actions.loadSolarFaqs(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
