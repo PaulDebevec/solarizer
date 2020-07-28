@@ -237,5 +237,62 @@ describe('App', () => {
     expect(window.location.pathname).toBe('/historical')
   })
 
+  it('should allow the user to skip the historical page and bring up a results page with a table created from their configure data', () => {
+    testStore.dispatch({ type: "SET_SOLAR_DATA", data })
+    const { getByText } = appTestWrapper()
+
+    expect(window.location.pathname).toBe('/results')
+
+    const monthHeading = getByText('Month')
+    const solradHeading = getByText('Solar Radiation')
+    const acHeading = getByText('AC Energy')
+    const valueHeading = getByText('Value')
+    const solradSubheading = getByText('(kWh / m2 / day)')
+    const acSubheading = getByText('(kWh)')
+    const valueSubheading = getByText('($)')
+    const graphButton = getByText('Graph It!')
+    const JanuaryLabel = getByText('January')
+    const FebruaryLabel = getByText('February')
+    const MarchLabel = getByText('March')
+    const acMonthlyData1 = getByText('397.03')
+    const acMonthlyData2 = getByText('609.82')
+    const solradMonthlyData1 = getByText('3.81')
+    const solradMonthlyData2 = getByText('6.40')
+    const valueMonthlyData1 = getByText('43.87')
+    const valueMonthlyData2 = getByText('67.31')
+    const offsetNotice = getByText('Based on your annual energy usage, this solar system would offset 59.00% of your electicity cost per year!')
+
+    expect(monthHeading).toBeInTheDocument()
+    expect(solradHeading).toBeInTheDocument()
+    expect(acHeading).toBeInTheDocument()
+    expect(valueHeading).toBeInTheDocument()
+    expect(solradSubheading).toBeInTheDocument()
+    expect(acSubheading).toBeInTheDocument()
+    expect(valueSubheading).toBeInTheDocument()
+    expect(graphButton).toBeInTheDocument()
+    expect(JanuaryLabel).toBeInTheDocument()
+    expect(FebruaryLabel).toBeInTheDocument()
+    expect(MarchLabel).toBeInTheDocument()
+    expect(acMonthlyData1).toBeInTheDocument()
+    expect(acMonthlyData2).toBeInTheDocument()
+    expect(solradMonthlyData1).toBeInTheDocument()
+    expect(solradMonthlyData2).toBeInTheDocument()
+    expect(valueMonthlyData1).toBeInTheDocument()
+    expect(valueMonthlyData2).toBeInTheDocument()
+    expect(offsetNotice).toBeInTheDocument()
+  })
+
+  it('should now have a results, charts, and new address button available to the user in the header', () => {
+    const { getByText } = appTestWrapper()
+
+    const newAddress = getByText('New Address')
+    const chart = getByText('Charts')
+    const results = getByText('Results')
+    expect(newAddress).toBeInTheDocument()
+    expect(chart).toBeInTheDocument()
+    expect(results).toBeInTheDocument()
+  })
+
+
 
 })
