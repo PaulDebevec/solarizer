@@ -131,14 +131,6 @@ const Chart = ({ solarData, user }) => {
                 legend: {
                   display: true,
                   position: 'bottom'
-                },
-                scales: {
-                  yAxes: [{
-                    scaleLabel: {
-                      display: true,
-                      labelString: yAxisLabel
-                    }
-                  }]
                 }
               }}
             />}
