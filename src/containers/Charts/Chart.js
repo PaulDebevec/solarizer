@@ -23,6 +23,16 @@ const Chart = ({ solarData }) => {
     }]
   })
 
+  const pieData = {
+    labels: data.labels,
+    datasets: [{
+      label: data.datasets[0].label,
+      backgroundColor: pieColors,
+      borderColor: 'whitesmoke',
+      borderWidth: 2,
+      data: data.datasets[0].data
+    }]
+  }
 
   const getSpecificChart = (e) => {
     let chartName = e.target.options[e.target.selectedIndex].text
