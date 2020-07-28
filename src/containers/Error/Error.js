@@ -4,15 +4,15 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions';
 
 
-const Error = ({clearAllData})  => {
-    return (
-        <div className="address-form">
-        <p>Oops! A Wrong Path was taken.</p>
-            <Link to='/' >
-                <button onClick={clearAllData}>Go Back to Home Page</button>
-            </Link >
-        </div>
-    )
+const Error = ({ clearAllData }) => {
+  return (
+    <div className="address-form">
+      <p title='error-msg'>Oops! A Wrong Path was Taken.</p>
+      <Link to='/' >
+        <button onClick={clearAllData}>Go Back to Home Page</button>
+      </Link >
+    </div>
+  )
 }
 
 const mapDispatchToProps = (dispatch) => ({
