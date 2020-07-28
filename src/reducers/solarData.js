@@ -11,3 +11,13 @@ export const loadSolarData = (state = {}, action) => {
       return state
   }
 }
+
+  export const loadSolarFaqs = (state = {}, action) => {
+    switch(action.type) {
+    case "SET_SOLAR_FAQS":
+        return action.data
+
+    default:
+    return state
+  }
+}

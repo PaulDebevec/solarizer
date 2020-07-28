@@ -22,3 +22,7 @@ export const clearAllData = () => ({
   type: "USER_LOGOUT"
 })
 
+export const loadSolarFaqs = (data) => ({
+  type: "SET_SOLAR_FAQS",
+  data
+})
