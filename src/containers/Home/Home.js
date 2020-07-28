@@ -27,7 +27,8 @@ const Home = ({ setCurrentProfile, user, loadSolarFaqs }) => {
     updateValidatedUser(true)
   }
 
-  async function fetchSolarFaqs() {
+  useEffect(() => {
+    async function fetchSolarFaqs() {
     await fetch('https://secret-meadow-99085.herokuapp.com/api/v1/faq')
     .then(response => {
       if (!response.ok) {
@@ -40,10 +41,8 @@ const Home = ({ setCurrentProfile, user, loadSolarFaqs }) => {
       window.alert(`Server Error. It's not your fault the error is: ${error}`)
     })
   }
-
-  useEffect(() => {
-    fetchSolarFaqs()
-  }, [])
+  fetchSolarFaqs()
+}, [loadSolarFaqs])
 
   return (
     <>
