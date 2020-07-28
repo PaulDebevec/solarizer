@@ -17,22 +17,26 @@ This application allows for users to configure a hypothetical solar power genera
 5. Visit [localhost:3000](localhost:3000) to view the application in your browser
 
 ## Walkthrough
- 1. Visit the production or localhost application and enter your address
- 2. Click Begin
- 3. Enter a hypothetical solar array configuration. Commonly-encountered settings are suggested through the use of placeholder text in each input field.
- 4. Click Submit
- 5. (Optional) Enter historical energy usage for the past twelve months (tip: check your utility bill history). If this information is not available, click Skip, otherwise click Submit.
- 5. Results are displayed in a table. Click on "Graph It" to view the same data in charts.
+ 1. Visit the production or localhost application and enter your address and click Begin  
+ ![Home page](https://i.imgur.com/nVWbPtD.png)
+ 2. Enter a hypothetical solar array configuration. Commonly-encountered settings are suggested through the use of placeholder text in each input field, and then click Submit  
+ ![Configure page](https://i.imgur.com/J14h8zM.png)
+ 3. (Optional) Enter historical energy usage for the past twelve months (tip: check your utility bill history). If this information is not available, click Skip, otherwise click Submit.  
+ ![Historical page](https://i.imgur.com/Dkyl1Tp.png)
+ 4. Results are displayed in a table.  
+ ![Results page](https://i.imgur.com/V243QrD.png)
+ 5. Click on "Graph It" to view the same data in charts.  
+ ![Charts page](https://i.imgur.com/yJIusmW.png)
 
 ## Backend
-Solarizer's frontend is supported by a RESTFUL Python/Flask API hosted in a separate repository at [solarize-be](https://github.com/PaulDebevec/solarize-be).
+Solarizer's frontend is supported by two API endpoints: a Python/Flask API combining power generation and utility rate data, and a Rails API serving ecotips and frequently asked questions. The first is hosted at [solarize-be](https://github.com/PaulDebevec/solarize-be), and the second at [solarizer-api](https://github.com/jrsewell400/solarizer-api)
 
 ## Contributors
-* [Jeremy Poulter (frontend)](https://github.com/J-Poulter)
-* [Nick Taylor (frontend)](https://github.com/nickstaylor)
-* [Alex Latham (frontend)](https://github.com/alex-latham)
-* [Paul Debevec (backend)](https://github.com/PaulDebevec)
-* [Jordan Sewell (backend)](https://github.com/jrsewell400)
+* [Jeremy Poulter](https://github.com/J-Poulter) (frontend)
+* [Nick Taylor](https://github.com/nickstaylor) (frontend)
+* [Alex Latham](https://github.com/alex-latham) (frontend)
+* [Paul Debevec](https://github.com/PaulDebevec) (backend)
+* [Jordan Sewell](https://github.com/jrsewell400) (backend)
 
 ## Acknowledgements
 This project was made possible by the research, collection, and publication of geographic solar radiance data by the National Renewable Energy Laboratory ([NREL](https://www.nrel.gov/)), a national laboratory of the U.S. Department of Energy's Office of Energy Efficiency and Renewable Energy.
