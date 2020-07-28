@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Solarizer
 
-## Available Scripts
+## About
+Solarizer is a frontend web application created using a Node.js runtime environment with React and Redux libraries and developed by a team of Turing Module-4 students. Deployment to production at [solarizer.herokuapp.com](http://solarizer.herokuapp.com/) is handled using a continuous integration workflow with Travis-CI.
 
-In the project directory, you can run:
+This application allows for users to configure a hypothetical solar power generation system through a series of forms to predict monthly energy output and utility savings. After configuration, the user is provided data in a table and can choose to view the same datapoints as several types of charts. We hope that having access to this information in a friendly user interface will encourage wider adoption of green energy sources.
 
-### `npm start`
+## Prerequisites
+* Node.js 12.18.1
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup Local Server
+1. Clone this repository: `git clone git@github.com:PaulDebevec/solarizer.git`
+2. Enter the local directory: `cd solarizer`
+3. Install package dependencies: `npm install`
+4. Run test suite: `npm test` then `a` to run all tests
+4. Launch server: `npm start`
+5. Visit [localhost:3000](localhost:3000) to view the application in your browser
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Walkthrough
+ 1. Visit the production or localhost application and enter your address and click Begin  
+ ![Home page](https://i.imgur.com/nVWbPtD.png)
+ 2. Enter a hypothetical solar array configuration. Commonly-encountered settings are suggested through the use of placeholder text in each input field, and then click Submit  
+ ![Configure page](https://i.imgur.com/J14h8zM.png)
+ 3. (Optional) Enter historical energy usage for the past twelve months (tip: check your utility bill history). If this information is not available, click Skip, otherwise click Submit.  
+ ![Historical page](https://i.imgur.com/Dkyl1Tp.png)
+ 4. Results are displayed in a table.  
+ ![Results page](https://i.imgur.com/V243QrD.png)
+ 5. Click on "Graph It" to view the same data in charts.  
+ ![Charts page](https://i.imgur.com/yJIusmW.png)
 
-### `npm test`
+## Backend
+Solarizer's frontend is supported by two API endpoints: a Python/Flask API combining power generation and utility rate data, and a Rails API serving ecotips and frequently asked questions. The first is hosted at [solarize-be](https://github.com/PaulDebevec/solarize-be), and the second at [solarizer-api](https://github.com/jrsewell400/solarizer-api)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributors
+* [Jeremy Poulter](https://github.com/J-Poulter) (frontend)
+* [Nick Taylor](https://github.com/nickstaylor) (frontend)
+* [Alex Latham](https://github.com/alex-latham) (frontend)
+* [Paul Debevec](https://github.com/PaulDebevec) (backend)
+* [Jordan Sewell](https://github.com/jrsewell400) (backend)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Acknowledgements
+This project was made possible by the research, collection, and publication of geographic solar radiance data by the National Renewable Energy Laboratory ([NREL](https://www.nrel.gov/)), a national laboratory of the U.S. Department of Energy's Office of Energy Efficiency and Renewable Energy.
