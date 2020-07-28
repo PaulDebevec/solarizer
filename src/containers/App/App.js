@@ -15,24 +15,6 @@ import Faq from '../Faq/Faq'
 
 const App = (props) => {
 
-  async function fetchSolarFaqs() {
-    await fetch('https://secret-meadow-99085.herokuapp.com/api/v1/faq')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch')
-      }
-      return response.json()
-    })
-    .then(response => props.loadSolarFaqs(response))
-    .catch((error) => {
-      window.alert(`Server Error. It's not your fault the error is: ${error}`)
-    })
-  }
-
-  useEffect(() => {
-    fetchSolarFaqs()
-  }, [])
-
   return (
     <>
       <div className="background-container">
@@ -80,8 +62,5 @@ const mapStateToProps = (state) => ({
   validatedUser: state.userProfile.validatedUser
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  loadSolarFaqs: (data) => dispatch(actions.loadSolarFaqs(data))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

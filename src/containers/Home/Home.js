@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from "react-router-dom";
 import './Home.css';
 import * as actions from '../../actions';
@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import ListOfStates from './ListOfStates';
 import sun from '../../images/sun.svg'
 
-const Home = ({ setCurrentProfile, user }) => {
+const Home = ({ setCurrentProfile, user, loadSolarFaqs }) => {
   const [address, updateAddress] = useState('')
   const [city, updateCity] = useState('')
   const [state, updateState] = useState('')
@@ -26,6 +26,24 @@ const Home = ({ setCurrentProfile, user }) => {
     setCurrentProfile(userProfile);
     updateValidatedUser(true)
   }
+
+  async function fetchSolarFaqs() {
+    await fetch('https://secret-meadow-99085.herokuapp.com/api/v1/faq')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch')
+      }
+      return response.json()
+    })
+    .then(response => loadSolarFaqs(response))
+    .catch((error) => {
+      window.alert(`Server Error. It's not your fault the error is: ${error}`)
+    })
+  }
+
+  useEffect(() => {
+    fetchSolarFaqs()
+  }, [])
 
   return (
     <>
@@ -101,7 +119,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentProfile: (userProfile) => dispatch(actions.currentUserProfile(userProfile))
+  setCurrentProfile: (userProfile) => dispatch(actions.currentUserProfile(userProfile)),
+  loadSolarFaqs: (data) => dispatch(actions.loadSolarFaqs(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
