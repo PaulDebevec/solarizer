@@ -14,6 +14,29 @@ jest.mock('react-chartjs-2', () => ({
   Pie: () => null
 }));
 
+const graphData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  datasets: [{
+    label: 'Solar Radiation',
+    backgroundColor: 'rgba(75,192,192,1)',
+    borderColor: 'whitesmoke',
+    borderWidth: 2,
+    data: [5.084908962249756,
+      6.171108722686768,
+      7.394773483276367,
+      7.778176307678223,
+      8.63671875,
+      9.294778823852539,
+      8.980157852172852,
+      8.637933731079102,
+      7.904896259307861,
+      6.774695873260498,
+      15.589939594268799,
+      14.561224937438965
+    ]
+  }]
+}
+
 
 const testStore = createStore(rootReducer);
 
@@ -65,7 +88,32 @@ const chartTestWrapper = () => {
     <Provider store={testStore}>
       <BrowserRouter>
         <Chart />
-        <Bar />
+        <Bar data={graphData}
+          width={50}
+          height={50}
+          options={{
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: 'Solar Radiation',
+              fontSize: 20,
+              fontColor: 'black'
+            },
+            legend: {
+              display: true,
+              position: 'bottom'
+            },
+            scales: {
+              yAxes: [{
+                scaleLabel: {
+                  display: true,
+                  labelString: '(kWh / m^2) / day'
+                  }
+                }]
+              }
+          }}
+          
+        />
         <Line />
         <Pie />
       </BrowserRouter>
@@ -86,7 +134,7 @@ describe('Chart', () => {
     expect(line).toBeInTheDocument()
     expect(pie).toBeInTheDocument()
     expect(savingsMessage).toBeInTheDocument()
-    // debug()
+
   })
 
   it('should have different graph options available', () => {
@@ -104,6 +152,6 @@ describe('Chart', () => {
     expect(ac).toBeInTheDocument()
     expect(savings).toBeInTheDocument()
     expect(options).toHaveLength(6)
-
+  
   })
 })
