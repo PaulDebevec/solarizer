@@ -19,6 +19,7 @@ const Results = ({ solarData }) => {
 
   return (
     <div className="results-container">
+      <h1 className='results-title'>Here are your Results!</h1>
       <table className="results-table">
         <thead>
           <tr>
