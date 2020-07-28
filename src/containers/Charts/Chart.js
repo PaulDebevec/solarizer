@@ -9,6 +9,8 @@ const Chart = ({ solarData }) => {
 
   const [chartType, updateChartType] = useState('bar')
   const [yAxisLabel, updateYAxisLabel] = useState('(kWh / m^2) / day')
+  const pieColors = ['#a93ad7', '#077ed6', '#96d9ff', '#5fb7d4', '#7cdddd', '#26d7ae', '#2dcb75', '#1caa2f', '#d5f30d', '#feec01', '#fba052', '#ff1d00']
+
 
   const [data, updateData] = useState({
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -20,6 +22,17 @@ const Chart = ({ solarData }) => {
       data: solarData.solRadMonthly
     }]
   })
+
+  const pieData = {
+    labels: data.labels,
+    datasets: [{
+      label: data.datasets[0].label,
+      backgroundColor: pieColors,
+      borderColor: 'whitesmoke',
+      borderWidth: 2,
+      data: data.datasets[0].data
+    }]
+  }
 
   const getSpecificChart = (e) => {
     let chartName = e.target.options[e.target.selectedIndex].text
@@ -102,7 +115,7 @@ const Chart = ({ solarData }) => {
             />}
           {chartType === 'pie' &&
             <Pie
-              data={data}
+              data={pieData}
               width={50}
               height={50}
               options={{
@@ -130,7 +143,7 @@ const Chart = ({ solarData }) => {
         </div>
         <div className="chart-selection-options">
           <div className="configure-form-item">
-            <label>Chart Data</label>
+            <label alt="Chart Date" htmlFor="chartData">Chart Data</label>
             <select
               className="configure-selects"
               defaultValue={"Solar Radiation"}
@@ -139,15 +152,16 @@ const Chart = ({ solarData }) => {
             >
               <option id='Solar' data-y-axis='(kWh / m^2) / day' value="solRadMonthly">Solar Radiation</option>
               <option id='AC' data-y-axis='kWh' value="acMonthly">AC Monthly</option>
-              {solarData.savingsMonthly && <option id='Dollars $' data-y-axis='$' value="savingsMonthly">Savings Value</option>}
+              <option id='Dollars $' data-y-axis='Dollars $' value="savingsMonthly">Savings Value</option>
             </select>
           </div>
           <div className="configure-form-item">
-            <label>Chart Type</label>
+            <label alt="ChartType" htmlFor="chartType">Chart Type</label>
             <select
               className="configure-selects"
               defaultValue={'bar'}
               required
+              name="chartType"
               onChange={e => updateChartType(e.target.value)}
             >
               <option value='bar'>Bar</option>
@@ -158,9 +172,9 @@ const Chart = ({ solarData }) => {
         </div>
       </div>
       <div className="savings-display-bar">
-      {solarData.percentOffset ?
-        <p> Based on your annual energy usage, this solar system would offset {solarData.percentOffset} % per year! </p> :
-        <p> For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
+        {solarData.percentOffset ?
+          <p> Based on your annual energy usage, this solar system would offset {Number(solarData.percentOffset).toFixed(2)}% of your electicity cost per year! </p> :
+          <p> For a true savings estimate, please enter your <Link to="/historical"> home energy data</Link> </p>
         }
       </div>
     </div>

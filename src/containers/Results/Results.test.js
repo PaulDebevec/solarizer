@@ -11,52 +11,49 @@ import Results from './Results';
 const testStore = createStore(rootReducer)
 
 let data = {
-  data: {
-    ac_monthly: [
-      397.03,
-      429.89,
-      570.64,
-      598.79,
-      609.82,
-      609.14,
-      599.88,
-      583.93,
-      544.98,
-      485.94,
-      412.04,
-      366.74
-    ],
-    solrad_monthly: [
-      3.81,
-      4.78,
-      5.75,
-      6.27,
-      6.40,
-      6.97,
-      6.68,
-      6.46,
-      6.07,
-      5.06,
-      4.25,
-      3.53
-    ],
-    value_monthly: [
-      43.87,
-      47.50,
-      63.05,
-      66.16,
-      67.38,
-      67.31,
-      66.28,
-      64.52,
-      60.22,
-      53.69,
-      45.53,
-      40.52
-    ],
-    percent_offset: 59,
-  },
-  historicalData: []
+  ac_monthly: [
+    397.03,
+    429.89,
+    570.64,
+    598.79,
+    609.82,
+    609.14,
+    599.88,
+    583.93,
+    544.98,
+    485.94,
+    412.04,
+    366.74
+  ],
+  solrad_monthly: [
+    3.81,
+    4.78,
+    5.75,
+    6.27,
+    6.40,
+    6.97,
+    6.68,
+    6.46,
+    6.07,
+    5.06,
+    4.25,
+    3.53
+  ],
+  value_monthly: [
+    43.87,
+    47.50,
+    63.05,
+    66.16,
+    67.38,
+    67.31,
+    66.28,
+    64.52,
+    60.22,
+    53.69,
+    45.53,
+    40.52
+  ],
+  percent_offset: 59,
 }
 
 const resultsTestWrapper = () => {
@@ -152,19 +149,16 @@ describe('Results', () => {
 
     const { getByText } = resultsTestWrapper()
 
-    const offsetNotice = getByText('Based on your annual energy usage, this solar system would offset 59 % per year!')
+    const offsetNotice = getByText('Based on your annual energy usage, this solar system would offset 59.00% of your electicity cost per year!')
     expect(offsetNotice).toBeInTheDocument()
   })
 
   it("should display a different notice to advise them how to recieve true savings estimate if they haven't entered historical data", () => {
     data = {
-      data: {
-        ac_monthly: [],
-        solrad_monthly: [],
-        value_monthly: [],
-        percent_offset: ''
-      },
-      historicalData: []
+      ac_monthly: [],
+      solrad_monthly: [],
+      value_monthly: [],
+      percent_offset: ''
     }
 
     testStore.dispatch({ type: "SET_SOLAR_DATA", data })
