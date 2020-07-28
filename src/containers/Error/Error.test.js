@@ -23,7 +23,7 @@ describe('Error', () => {
   it('should render the correct content', () => {
     const { getByText } = errorTestWrapper()
 
-    const message = getByText('Oops! A Wrong Path was taken.')
+    const message = getByText('Oops! A Wrong Path was Taken.')
     const button = getByText('Go Back to Home Page')
 
     expect(message).toBeInTheDocument()
