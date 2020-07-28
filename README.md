@@ -1,4 +1,4 @@
-# Solarizer
+# Solarizer [![Build Status](https://travis-ci.org/PaulDebevec/solarizer.svg?branch=master)](https://travis-ci.org/PaulDebevec/solarizer)
 
 ## About
 Solarizer is a frontend web application created using a Node.js runtime environment with React and Redux libraries and developed by a team of Turing Module-4 students. Deployment to production at [solarizer.herokuapp.com](http://solarizer.herokuapp.com/) is handled using a continuous integration workflow with Travis-CI.
@@ -27,6 +27,8 @@ This application allows for users to configure a hypothetical solar power genera
  ![Results page](https://i.imgur.com/V243QrD.png)
  5. Click on "Graph It" to view the same data in charts.  
  ![Charts page](https://i.imgur.com/yJIusmW.png)
+ 6. The FAQ is available from the home page by clicking "What is Solarizer?"
+ ![FAQ](https://i.imgur.com/ayKYh9D.png)
 
 ## Backend
 Solarizer's frontend is supported by two API endpoints: a Python/Flask API combining power generation and utility rate data, and a Rails API serving ecotips and frequently asked questions. The first is hosted at [solarize-be](https://github.com/PaulDebevec/solarize-be), and the second at [solarizer-api](https://github.com/jrsewell400/solarizer-api)
