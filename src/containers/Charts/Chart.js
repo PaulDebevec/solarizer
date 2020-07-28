@@ -9,6 +9,8 @@ const Chart = ({ solarData }) => {
 
   const [chartType, updateChartType] = useState('bar')
   const [yAxisLabel, updateYAxisLabel] = useState('(kWh / m^2) / day')
+  const pieColors = ['#a93ad7', '#077ed6', '#96d9ff', '#5fb7d4', '#7cdddd', '#26d7ae', '#2dcb75', '#1caa2f', '#d5f30d', '#feec01', '#fba052', '#ff1d00']
+
 
   const [data, updateData] = useState({
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -20,6 +22,17 @@ const Chart = ({ solarData }) => {
       data: solarData.solRadMonthly
     }]
   })
+
+  const pieData = {
+    labels: data.labels,
+    datasets: [{
+      label: data.datasets[0].label,
+      backgroundColor: pieColors,
+      borderColor: 'whitesmoke',
+      borderWidth: 2,
+      data: data.datasets[0].data
+    }]
+  }
 
   const getSpecificChart = (e) => {
     let chartName = e.target.options[e.target.selectedIndex].text
@@ -102,7 +115,7 @@ const Chart = ({ solarData }) => {
             />}
           {chartType === 'pie' &&
             <Pie
-              data={data}
+              data={pieData}
               width={50}
               height={50}
               options={{
