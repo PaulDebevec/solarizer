@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers/index';
 import App from './App'
-import * as actions from '../../actions'
 
 let data = {
   ac_monthly: [
@@ -53,8 +52,6 @@ let data = {
   ],
   percent_offset: 59,
 }
-
-let userQuote = {}
 
 const testStore = createStore(rootReducer);
 
@@ -336,5 +333,4 @@ describe('App', () => {
     expect(addressInputLabel).toBeInTheDocument()
     expect(homepageBeginButton).toBeInTheDocument()
   })
-
 })
