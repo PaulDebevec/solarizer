@@ -8,6 +8,8 @@ This application allows for users to configure a hypothetical solar power genera
 ## Prerequisites
 * Node.js 12.18.1
 
+* The back-end application [solarize-be](https://github.com/PaulDebevec/solarize-be) 
+
 ## Setup Local Server
 1. Clone this repository: `git clone git@github.com:PaulDebevec/solarizer.git`
 2. Enter the local directory: `cd solarizer`
